@@ -1,0 +1,37 @@
+// Racing Game Kit - AI Level Configuration Document
+// Please be careful while editing this document. Don't break structure.
+// For editing AI properties edit values of "ai_setup" objects. 
+// as example "{"ai_speedcoef":"1.2"}"
+// AILEVEL : INTERMEDIATE
+
+{
+	"ai_behavior":"1",
+	"softbrake_factor":"-0.30",
+	"hardbrake_factor":"-0.50",
+
+	"detection_radius":"5",
+	"detection_frequency":"0.5",
+	"collision_avoid_angle":"10",
+	"collision_avoid_time":"1.1",
+	"collision_avoid_factor":"0.045",
+
+	"enable_speed_factor":true,
+	"random_speed_factor":true,
+	"random_speed_factor_on_start":true,
+	"speed_factor":"0.9",
+	"speed_factor_max":"1.20",
+
+	"forward_sensor_distance":"15",
+	"forward_sensor_distance_high_speed":"25",
+	"forward_sensor_angle":"20",
+
+	"side_sensor_distance":"15",
+	"side_sensor_angle":"30",
+	"wall_sensor_distance":"1",
+	"reverse_sensor_distance":"1",
+
+	"enable_obstacle_avoid":true,
+	"obstacle_dedection_distance":"25",
+	"obstacle_avoid_factor":"0.2"
+	
+}

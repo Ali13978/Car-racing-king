@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/GARAGE/Scenes/MainMenu.unity
+    guid: 0755cd49b3e2260429623c3a3f4117be
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 1 circuit.unity
+    guid: 77e4d6f9bb42f7448944381f6a4ebb35
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 1 sprint.unity
+    guid: 3e536d92de6fe7b42898d13fc1eade8e
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 1 knockout.unity
+    guid: a0c719bbfa837b34ba507cfa58d176e5
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 1 SpeedTrap.unity
+    guid: 106d09d34186be64a8e7894e48576810
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 1 timeAttack.unity
+    guid: 3646e580922f17241b55a42e67f50e09
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 2 circuit.unity
+    guid: 557cf11d8c8147c42ab288d4c6944703
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 2 sprint.unity
+    guid: 7b17b988aa31ba44592faa9c3feaaeb0
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 2 knockout.unity
+    guid: e60ae097d0ef88f4c983cdee50e4e53c
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 2 speedTrap.unity
+    guid: 27b77403d6fda994897a119ae2ee5045
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 2 timeAttack.unity
+    guid: 4d35d66f8a6f3bd41a3459bd1ead43a1
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 3 Circuit.unity
+    guid: 2410b38c95c1fdb43984f51fa0ccfca2
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 3 Sprint.unity
+    guid: 8d865593c9d18e54aae28f80cbc33477
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 3 KnockOut.unity
+    guid: 84363289010bc74458d9db0f5e7df4db
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 3 SpeedTrap.unity
+    guid: 08c513c3e6b0a3244b8bf28451919dc8
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 3 timeAttack.unity
+    guid: 213eb8504abb1d146acc7a1b8e142be9
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 4 Circuit.unity
+    guid: 6d25bb2688e5a064c8275edc44765874
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 4 Sprint.unity
+    guid: b844e8c24e70045498e7e818605faa4f
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 4 KnowckOut.unity
+    guid: fef9b91588f9b1344861eebe10278e2b
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 4 SpeedTrap.unity
+    guid: 02a712f5bba9a5d4496c6465feb7346a
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 4 timeAttack.unity
+    guid: af0c104ebb76c634e96782b8cb5c0f71
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 5 circut.unity
+    guid: 4917990f7b0a1b749a44247e718e9d99
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 5 sprint.unity
+    guid: 9c1a0d6689c3799458660098b93616de
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 5 KnockOut.unity
+    guid: 29a831e8c3df7e1469926f54dc7cade1
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 5 SpeedTrap.unity
+    guid: 6eacbbc6d3abbd8409597877c7fd70a2
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/level 5 TimeAttack.unity
+    guid: 55c667486035e7b48b938e268bcd6d42
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/RaceTracks_001.unity
+    guid: 3b664122239ef76469f76c2e04a89269
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/RaceTracks_002.unity
+    guid: 6355f148128ea294a9a2d343c92828cd
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/RaceTracks_003.unity
+    guid: dfc13d07364cd1e4d938e64ed68c692e
+  - enabled: 1
+    path: Assets/Desert_Drift_Race_Track_Mobile_Optimized/Desert_Drift_Race_Track_Mobile_Optimized.unity
+    guid: cac5185ef66185340811c997d489c522
+  - enabled: 1
+    path: Assets/_Racing Game Kit Demo/Scenes/RaceTracks_005.unity
+    guid: 9eb2f51560d45da41b0286385132b012

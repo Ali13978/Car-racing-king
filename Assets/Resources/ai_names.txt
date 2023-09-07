@@ -1,0 +1,20 @@
+// Racing Game Kit - AI Racer Names 
+// Please be careful while editing this document. Don't break structure.
+// For editing AI names edit values of "ainame" objects. 
+// as example "{"ainame":"My Custom AI Name"}"
+
+{
+"ainames":
+	[
+		{"ainame":"John"},
+		{"ainame":"Carter"},
+		{"ainame":"Smith"},
+		{"ainame":"Jason"},
+		{"ainame":"Tazz"},
+		{"ainame":"Lizzy"},
+		{"ainame":"Tressa"},
+		{"ainame":"Ben"},
+		{"ainame":"Jon Snow"},
+		{"ainame":"Randy"}
+	]
+}
