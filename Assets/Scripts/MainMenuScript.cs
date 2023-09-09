@@ -1,7 +1,9 @@
 using CinemaDirector;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using static AliScripts.AliExtras;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -15,18 +17,49 @@ public class MainMenuScript : MonoBehaviour
 		LoadingScreen
 	}
 
-	public Transform campoint;
+    #region Singleton
+    public static MainMenuScript instance;
+    private void Awake()
+    {
+        instance = this;
+    }
 
-	public Cutscene cutscene;
+    #endregion
 
-	public GameObject MainCamera;
+    [Header("------------Pannels-----------")]
+    [SerializeField] GameObject mainMenuPannel;
+    [SerializeField] GameObject lobbyPannel;
+    [SerializeField] GameObject createJoinRoomPannel;
+    [SerializeField] GameObject setupNamePannel;
 
-	public GameObject[] CarStats;
+    [Header("------------Create/Join Lobby System-----------")]
+    [SerializeField] Button createRoomBtn;
+    [SerializeField] InputField joinCodeInputField;
+    [SerializeField] Button joinBtn;
 
-	public int vehicleCounter;
+    [Header("------------Lobby Pannel-----------")]
+    [SerializeField] Text lobbyCodeText; 
+    [SerializeField] GameObject playersHolder;
+    [SerializeField] GameObject playerInLobbyPrefab;
+    [SerializeField] Button startGameBtn;
+    public Action editLobbyPlayersAction;
+
+    [Header("------------Setup name Pannel-----------")]
+    [SerializeField] InputField NameInputField;
+    [SerializeField] Button doneBtn;
+
+    [SerializeField] Transform campoint;
+
+    [SerializeField] Cutscene cutscene;
+
+    [SerializeField] GameObject MainCamera;
+
+    [SerializeField] GameObject[] CarStats;
+
+    [SerializeField] int vehicleCounter;
 
 	[Header("Stars")]
-	public Transform[] starsCanvas;
+    [SerializeField] Transform[] starsCanvas;
 
 	private Transform[] starsCanvasArray;
 
@@ -35,120 +68,120 @@ public class MainMenuScript : MonoBehaviour
 	private const int OFF = 1;
 
 	[Header("Sound Clips")]
-	public AudioClip click;
+    [SerializeField] AudioClip click;
 
-	public AudioClip clickBass;
+    [SerializeField] AudioClip clickBass;
 
-	public AudioClip clickTreble;
+    [SerializeField] AudioClip clickTreble;
 
-	public AudioClip bgMusic;
+    [SerializeField] AudioClip bgMusic;
 
-	public AudioSource musicSource;
+    [SerializeField] AudioSource musicSource;
 
-	public AudioSource clickSource;
+    [SerializeField] AudioSource clickSource;
 
 	[Header("Links")]
-	public string bundleID;
+    //[SerializeField] string bundleID;
 
-	public string developerAccountID;
+    //[SerializeField] string developerAccountID;
 
-	public string instagramLink;
+    //[SerializeField] string instagramLink;
 
-	public string twitterLink;
+    //[SerializeField] string twitterLink;
 
 	private int soundStatus;
 
 	private int musicStatus;
 
 	[Header("Main Menu State")]
-	public MainMenuState currentState;
+    [SerializeField] MainMenuState currentState;
 
 	[Header("Canvas Elements")]
-	public GameObject playScreenCanvas;
+    [SerializeField] GameObject playScreenCanvas;
 
-	public GameObject settingsScreenCanvas;
+    [SerializeField] GameObject settingsScreenCanvas;
 
-	public GameObject environmentScreenCanvas;
+    [SerializeField] GameObject environmentScreenCanvas;
 
-	public GameObject vehicleSelectionCanvas;
+    [SerializeField] GameObject vehicleSelectionCanvas;
 
-	public GameObject loadingScrenCanvas;
+    [SerializeField] GameObject loadingScrenCanvas;
 
-	public GameObject[] levelScreenCanvas;
+    [SerializeField] GameObject[] levelScreenCanvas;
 
 	[Header(" --- Environment Locks --- ")]
-	public GameObject[] environmentLocks;
+    [SerializeField] GameObject[] environmentLocks;
 
 	[Header(" --- Environment Levels Cleared Text --- ")]
-	public Text[] environmentLevelsClearedCounter;
+    [SerializeField] Text[] environmentLevelsClearedCounter;
 
 	[Header("Settings Panel")]
-	public GameObject[] soundOnOff;
+    [SerializeField] GameObject[] soundOnOff;
 
-	public GameObject[] musicOnOff;
+    [SerializeField] GameObject[] musicOnOff;
 
 	[Header("Levels Panel")]
-	public GameObject[] levelObjects;
+    [SerializeField] GameObject[] levelObjects;
 
-	public GameObject[] selectedTextures;
+    [SerializeField] GameObject[] selectedTextures;
 
 	[TextArea(3, 10)]
-	public string[] missionObjectives;
+    [SerializeField] string[] missionObjectives;
 
-	public Text levelSelectionText;
+    [SerializeField] Text levelSelectionText;
 
-	public Text levelNumberText;
+    [SerializeField] Text levelNumberText;
 
-	public int selectedLevel;
+    [SerializeField] int selectedLevel;
 
 	[Header("Vehicles Panel")]
-	public GameObject[] vehicles;
+    [SerializeField] GameObject[] vehicles;
 
-	public string[] vehicleNames;
+    [SerializeField] string[] vehicleNames;
 
-	public string[] handling;
+    [SerializeField] string[] handling;
 
-	public string[] topSpeed;
+    [SerializeField] string[] topSpeed;
 
-	public string[] acceleration;
+    [SerializeField] string[] acceleration;
 
-	public Text topSpeedPlaceHolder;
+    [SerializeField] Text topSpeedPlaceHolder;
 
-	public Text accelerationPlaceHolder;
+    [SerializeField] Text accelerationPlaceHolder;
 
-	public Text handlingPlaceHolder;
+    [SerializeField] Text handlingPlaceHolder;
 
-	public Text vehicleNameText;
+    [SerializeField] Text vehicleNameText;
 
-	public string[] vehiclePrices;
+    [SerializeField] string[] vehiclePrices;
 
-	public Text vehiclePricePlaceHolder;
+    [SerializeField] Text vehiclePricePlaceHolder;
 
-	public Text cashPlaceHolder;
+    [SerializeField] Text cashPlaceHolder;
 
-	public GameObject buyButton;
+    [SerializeField] GameObject buyButton;
 
-	public GameObject DefaultButton;
+    [SerializeField] GameObject DefaultButton;
 
-	public GameObject DefaultButton2;
+    [SerializeField] GameObject DefaultButton2;
 
-	public GameObject DefaultButton3;
+    [SerializeField] GameObject DefaultButton3;
 
-	public GameObject displayMessageText;
+    [SerializeField] GameObject displayMessageText;
 
-	public string lessCashMessage;
+    [SerializeField] string lessCashMessage;
 
-	public string selectVehicleMessage;
+    [SerializeField] string selectVehicleMessage;
 
 	[Header("Loading Screen")]
-	public Texture truck;
+    [SerializeField] Texture truck;
 
-	public Texture blackBG;
+    [SerializeField] Texture blackBG;
 
-	public Texture blueBG;
+    [SerializeField] Texture blueBG;
 
 	[Header("Ads Stuff")]
-	public static int videoCash = 1000;
+    //[SerializeField] static int videoCash = 1000;
 
 	public GameObject noAdsCanvas;
 
@@ -156,16 +189,13 @@ public class MainMenuScript : MonoBehaviour
 
 	private float counter;
 
-	public GameObject panel;
-
-	private void Awake()
-	{
-	}
-
+    [SerializeField] GameObject panel;
+    
 	private void Start()
 	{
-		Time.timeScale = 1f;
-		currentState = MainMenuState.PlayScreen;
+        Time.timeScale = 1f;
+
+        currentState = MainMenuState.PlayScreen;
 		vehicleCounter = 0;
 		AudioListener.volume = 1f;
 		if (!PlayerPrefs.HasKey("FirstTime"))
@@ -177,6 +207,9 @@ public class MainMenuScript : MonoBehaviour
 			soundStatus = 0;
 			musicStatus = 0;
 			PlayerPrefs.SetInt("Cash", 45000);
+
+            mainMenuPannel.SetActive(false);
+            setupNamePannel.SetActive(true);
 		}
 		else
 		{
@@ -193,6 +226,68 @@ public class MainMenuScript : MonoBehaviour
 		{
 			UnityEngine.Debug.Log("Music is off");
 		}
+
+        createRoomBtn.onClick.AddListener(() => {
+            loadingScrenCanvas.SetActive(true);
+            createJoinRoomPannel.SetActive(false);
+
+            LobbyManager.instance.CreateLobby(false, () => {
+                Unity.Services.Lobbies.Models.Lobby joinedLobby = LobbyManager.instance.GetJoinedLobby();
+                lobbyCodeText.text = joinedLobby.LobbyCode;
+                loadingScrenCanvas.SetActive(false);
+                lobbyPannel.SetActive(true);
+
+            }, () => {
+                loadingScrenCanvas.SetActive(false);
+                mainMenuPannel.SetActive(true);
+            });
+        });
+
+        joinBtn.onClick.AddListener(() => {
+            loadingScrenCanvas.SetActive(true);
+            createJoinRoomPannel.SetActive(false);
+
+            string lobbyCode = joinCodeInputField.text;
+            if (string.IsNullOrEmpty(lobbyCode))
+                return;
+
+            LobbyManager.instance.JoinLobby(lobbyCode, () => {
+                Unity.Services.Lobbies.Models.Lobby joinedLobby = LobbyManager.instance.GetJoinedLobby();
+                lobbyCodeText.text = joinedLobby.LobbyCode;
+                loadingScrenCanvas.SetActive(false);
+                lobbyPannel.SetActive(true);
+            }, () => {
+                loadingScrenCanvas.SetActive(false);
+                mainMenuPannel.SetActive(true);
+            });
+        });
+        
+        editLobbyPlayersAction = () => {
+            DestroyChildren(playersHolder);
+            Unity.Services.Lobbies.Models.Lobby joinedLobby = LobbyManager.instance.GetJoinedLobby();
+
+            for(int i = 0; i < joinedLobby.Players.Count; i++)
+            {
+                GameObject player = Instantiate(playerInLobbyPrefab, playersHolder.transform);
+                PlayerInRoom _player = player.GetComponent<PlayerInRoom>();
+
+                _player.UpdatePlayerUI(joinedLobby.Players[i].Data["PlayerName"].Value);
+            }
+
+            if (joinedLobby.HostId != LoginManager.instance.GetPlayerId())
+                startGameBtn.gameObject.SetActive(false);
+        };
+
+        doneBtn.onClick.AddListener(() => {
+            string playerName = NameInputField.text;
+
+            if (string.IsNullOrEmpty(playerName))
+                return;
+
+            PlayerPrefs.SetString("PlayerName", playerName);
+            mainMenuPannel.SetActive(true);
+            setupNamePannel.SetActive(false);
+        });
 	}
 
 	private void Update()
@@ -210,7 +305,7 @@ public class MainMenuScript : MonoBehaviour
 			break;
 		case 1:
 			buttonClickTreble();
-			Application.OpenURL("https://play.google.com/store/apps/developer?id=Mega+Gamers+Production");
+			//Application.OpenURL("https://play.google.com/store/apps/developer?id=Mega+Gamers+Production");
 			break;
 		case 2:
 			buttonClickTreble();
@@ -221,7 +316,7 @@ public class MainMenuScript : MonoBehaviour
 			break;
 		case 3:
 			buttonClickTreble();
-			Application.OpenURL(developerAccountID);
+			//Application.OpenURL(developerAccountID);
 			break;
 		case 4:
 			buttonClick();
@@ -232,7 +327,7 @@ public class MainMenuScript : MonoBehaviour
 			break;
 		case 6:
 			buttonClickTreble();
-			Application.OpenURL("https://play.google.com/store/apps/details?id=com.mg.kingofracing");
+			//Application.OpenURL("https://play.google.com/store/apps/details?id=com.mg.kingofracing");
 			break;
 		case 7:
 			buttonClickBass();
@@ -240,7 +335,7 @@ public class MainMenuScript : MonoBehaviour
 			break;
 		case 8:
 			buttonClickTreble();
-			Application.OpenURL("https://play.google.com/store/apps/details?id=com.mg.racingcardrivingsimulator");
+			//Application.OpenURL("https://play.google.com/store/apps/details?id=com.mg.racingcardrivingsimulator");
 			break;
 		default:
 			UnityEngine.Debug.Log("Invalid argument in Play Screen Dialogue");
