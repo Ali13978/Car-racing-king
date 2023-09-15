@@ -1,14 +1,12 @@
 using System;
-using System.IO;
-using System.IO.Compression;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.Events;
+
 
 public class LobbyManager : MonoBehaviour
 {
@@ -43,22 +41,29 @@ public class LobbyManager : MonoBehaviour
         HandleLobbyPollsForUpdates();
     }
 
-    public async void CreateLobby(bool _isPrivate, UnityAction lobbyCreationSucessful, UnityAction LobbyCreationFailed)
+    public async void CreateLobby(bool _isPrivate, UnityAction lobbyCreationSucessful, UnityAction LobbyCreationFailed, string levelName)
     {
         try
         {
             int maxPlayers = 9;
             CreateLobbyOptions options = new CreateLobbyOptions();
+
+            string _roomName = UnityEngine.Random.Range(1, 100000).ToString();
+
             options.IsPrivate = _isPrivate;
             options.Player = GetPlayer();
             options.Data = new Dictionary<string, DataObject>
             {
-                {"RelayCode", new DataObject(DataObject.VisibilityOptions.Member, null) }
+                {"PhotonRoomName", new DataObject(DataObject.VisibilityOptions.Public, _roomName) },
+                {
+                    "LevelQuery",
+                    new DataObject( visibility: DataObject.VisibilityOptions.Public, levelName, index: DataObject.IndexOptions.S1)
+                }
             };
 
-            string lobbyName = UnityEngine.Random.Range(1, 1000000).ToString();
+            joinedLobby = await LobbyService.Instance.CreateLobbyAsync(_roomName, maxPlayers, options);
 
-            joinedLobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
+            PhotonNetworkManager.Instance.CreateRoom(_roomName);
 
             currentPlayersCount = 0;
             //joinedLobby = hostLobby;
@@ -72,37 +77,42 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
-    public async void JoinLobby(string lobbyCode, Action joiningSucessful, Action joiningFailed)
-    {
-        try
-        {
-            JoinLobbyByCodeOptions options = new JoinLobbyByCodeOptions();
-            options.Player = GetPlayer();
+    //public async void JoinLobby(string lobbyCode, Action joiningSucessful, Action joiningFailed)
+    //{
+    //    try
+    //    {
+    //        JoinLobbyByCodeOptions options = new JoinLobbyByCodeOptions();
+    //        options.Player = GetPlayer();
 
-            joinedLobby = await LobbyService.Instance.JoinLobbyByCodeAsync(lobbyCode, options);
-            joiningSucessful?.Invoke();
-        }
-        catch(LobbyServiceException e)
-        {
-            Debug.Log(e);
-            joiningFailed?.Invoke();
-        }
-    }
+    //        joinedLobby = await LobbyService.Instance.JoinLobbyByCodeAsync(lobbyCode, options);
+    //        joiningSucessful?.Invoke();
+    //    }
+    //    catch(LobbyServiceException e)
+    //    {
+    //        Debug.Log(e);
+    //        joiningFailed?.Invoke();
+    //    }
+    //}
 
-    public async void QuickJoinLobby(UnityAction QuickJoinSucessful, UnityAction QuickJoinFailed)
+    public async void QuickJoinLobby(UnityAction QuickJoinSucessful, UnityAction QuickJoinFailed, string levelName)
     {
         try
         {
             QuickJoinLobbyOptions options = new QuickJoinLobbyOptions();
             options.Player = GetPlayer();
+            options.Filter = new List<QueryFilter>
+            {
+                new QueryFilter(QueryFilter.FieldOptions.S1, op: QueryFilter.OpOptions.EQ, value: levelName)
+            };
 
             joinedLobby = await LobbyService.Instance.QuickJoinLobbyAsync(options);
+            PhotonNetworkManager.Instance.JoinRoom(joinedLobby.Data["PhotonRoomName"].Value);
             QuickJoinSucessful?.Invoke();
         }
         catch(LobbyServiceException e)
         {
             Debug.Log(e);
-            CreateLobby(false, QuickJoinSucessful, QuickJoinFailed);
+            CreateLobby(false, QuickJoinSucessful, QuickJoinFailed, levelName);
         }
     }
 
@@ -184,11 +194,6 @@ public class LobbyManager : MonoBehaviour
             Lobby lobby = await LobbyService.Instance.GetLobbyAsync(joinedLobby.Id);
 
             joinedLobby = lobby;
-            string RelayCode = joinedLobby.Data["RelayCode"].Value;
-
-            if (string.IsNullOrEmpty(RelayCode))
-                return;
-            
         }
 
     }

@@ -386,10 +386,10 @@ namespace RacingGameKit.UI
 				{
 					m_PlayerDetailP1 = m_RaceManager.Player1.GetComponent<Racer_Register>().RacerDetail;
 				}
-				if (m_PlayerDetailP2 == null && m_RaceManager.Player2 != null)
-				{
-					m_PlayerDetailP2 = m_RaceManager.Player2.GetComponent<Racer_Register>().RacerDetail;
-				}
+				//if (m_PlayerDetailP2 == null && m_RaceManager.Player2 != null)
+				//{
+				//	m_PlayerDetailP2 = m_RaceManager.Player2.GetComponent<Racer_Register>().RacerDetail;
+				//}
 				if (m_PlayerDetailP1 != null)
 				{
 					m_lblHudCurrentTimeValueP1.text = RGKUI_Utils.FormatTime(m_PlayerDetailP1.RacerTotalTime, m_EnableTimerFriction, 1);

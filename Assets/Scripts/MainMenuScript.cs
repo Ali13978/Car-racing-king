@@ -2,6 +2,7 @@ using CinemaDirector;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static AliScripts.AliExtras;
 
@@ -25,17 +26,19 @@ public class MainMenuScript : MonoBehaviour
     }
 
     #endregion
+    [SerializeField] GameObject moneyGameObject;
+    [SerializeField] Button multiplayerBtn;
 
     [Header("------------Pannels-----------")]
     [SerializeField] GameObject mainMenuPannel;
     [SerializeField] GameObject lobbyPannel;
-    [SerializeField] GameObject createJoinRoomPannel;
+    //[SerializeField] GameObject createJoinRoomPannel;
     [SerializeField] GameObject setupNamePannel;
 
-    [Header("------------Create/Join Lobby System-----------")]
-    [SerializeField] Button createRoomBtn;
-    [SerializeField] InputField joinCodeInputField;
-    [SerializeField] Button joinBtn;
+    //[Header("------------Create/Join Lobby System-----------")]
+    //[SerializeField] Button createRoomBtn;
+    //[SerializeField] InputField joinCodeInputField;
+    //[SerializeField] Button joinBtn;
 
     [Header("------------Lobby Pannel-----------")]
     [SerializeField] Text lobbyCodeText; 
@@ -190,8 +193,10 @@ public class MainMenuScript : MonoBehaviour
 	private float counter;
 
     [SerializeField] GameObject panel;
-    
-	private void Start()
+
+    public bool isMultiplayer;
+
+    private void Start()
 	{
         Time.timeScale = 1f;
 
@@ -227,40 +232,37 @@ public class MainMenuScript : MonoBehaviour
 			UnityEngine.Debug.Log("Music is off");
 		}
 
-        createRoomBtn.onClick.AddListener(() => {
-            loadingScrenCanvas.SetActive(true);
-            createJoinRoomPannel.SetActive(false);
-
-            LobbyManager.instance.CreateLobby(false, () => {
-                Unity.Services.Lobbies.Models.Lobby joinedLobby = LobbyManager.instance.GetJoinedLobby();
-                lobbyCodeText.text = joinedLobby.LobbyCode;
-                loadingScrenCanvas.SetActive(false);
-                lobbyPannel.SetActive(true);
-
-            }, () => {
-                loadingScrenCanvas.SetActive(false);
-                mainMenuPannel.SetActive(true);
-            });
+        multiplayerBtn.onClick.AddListener(() => {
+            moneyGameObject.SetActive(true);
+            playScreenOptions(4);
+            SetIsMultiplayer(true);
+            //createJoinRoomPannel.SetActive(false);
         });
+        //createRoomBtn.onClick.AddListener(() => {
+        //    moneyGameObject.SetActive(true);
+        //    playScreenOptions(4);
+        //    SetIsMultiplayer(true);
+        //    createJoinRoomPannel.SetActive(false);
+        //});
 
-        joinBtn.onClick.AddListener(() => {
-            loadingScrenCanvas.SetActive(true);
-            createJoinRoomPannel.SetActive(false);
+        //joinBtn.onClick.AddListener(() => {
+        //    loadingScrenCanvas.SetActive(true);
+        //    createJoinRoomPannel.SetActive(false);
 
-            string lobbyCode = joinCodeInputField.text;
-            if (string.IsNullOrEmpty(lobbyCode))
-                return;
+        //    string lobbyCode = joinCodeInputField.text;
+        //    if (string.IsNullOrEmpty(lobbyCode))
+        //        return;
 
-            LobbyManager.instance.JoinLobby(lobbyCode, () => {
-                Unity.Services.Lobbies.Models.Lobby joinedLobby = LobbyManager.instance.GetJoinedLobby();
-                lobbyCodeText.text = joinedLobby.LobbyCode;
-                loadingScrenCanvas.SetActive(false);
-                lobbyPannel.SetActive(true);
-            }, () => {
-                loadingScrenCanvas.SetActive(false);
-                mainMenuPannel.SetActive(true);
-            });
-        });
+        //    LobbyManager.instance.JoinLobby(lobbyCode, () => {
+        //        Unity.Services.Lobbies.Models.Lobby joinedLobby = LobbyManager.instance.GetJoinedLobby();
+        //        lobbyCodeText.text = joinedLobby.LobbyCode;
+        //        loadingScrenCanvas.SetActive(false);
+        //        lobbyPannel.SetActive(true);
+        //    }, () => {
+        //        loadingScrenCanvas.SetActive(false);
+        //        mainMenuPannel.SetActive(true);
+        //    });
+        //});
         
         editLobbyPlayersAction = () => {
             DestroyChildren(playersHolder);
@@ -294,6 +296,11 @@ public class MainMenuScript : MonoBehaviour
 	{
 		cashPlaceHolder.text = PlayerPrefs.GetInt("Cash").ToString();
 	}
+
+    public void SetIsMultiplayer(bool _isMultiplayer)
+    {
+        isMultiplayer = _isMultiplayer;
+    }
 
 	public void playScreenOptions(int option)
 	{
@@ -461,20 +468,42 @@ public class MainMenuScript : MonoBehaviour
 		}
 		case 1:
 			buttonClick();
-			if (PlayerPrefs.GetInt("Vehicle " + vehicleCounter.ToString()) == 1)
-			{
-				currentState = MainMenuState.LoadingScreen;
-				vehicleSelectionCanvas.SetActive(value: false);
-				loadingScrenCanvas.SetActive(value: true);
-				PlayerPrefs.SetInt("SelectedVehicle", vehicleCounter);
-				loadingProgress = Application.LoadLevelAsync(selectedLevel);
-				StartCoroutine(showProgress());
-			}
-			else
-			{
-				displayMessageText.SetActive(value: true);
-				displayMessageText.GetComponentInChildren<Text>().text = selectVehicleMessage;
-			}
+                if (PlayerPrefs.GetInt("Vehicle " + vehicleCounter.ToString()) == 1)
+                {
+                    if (isMultiplayer)
+                    {
+                        loadingScrenCanvas.SetActive(true);
+                        //createJoinRoomPannel.SetActive(false);
+
+                        LobbyManager.instance.QuickJoinLobby(() =>
+                        {
+                            Unity.Services.Lobbies.Models.Lobby joinedLobby = LobbyManager.instance.GetJoinedLobby();
+                            lobbyCodeText.text = joinedLobby.LobbyCode;
+                            loadingScrenCanvas.SetActive(false);
+                            lobbyPannel.SetActive(true);
+
+                        }, () =>
+                        {
+                            loadingScrenCanvas.SetActive(false);
+                            mainMenuPannel.SetActive(true);
+                        },
+                        selectedLevel.ToString());
+                    }
+                    else
+                    {
+                        currentState = MainMenuState.LoadingScreen;
+                        vehicleSelectionCanvas.SetActive(value: false);
+                        loadingScrenCanvas.SetActive(value: true);
+                        PlayerPrefs.SetInt("SelectedVehicle", vehicleCounter);
+                        loadingProgress = SceneManager.LoadSceneAsync(selectedLevel);
+                        StartCoroutine(showProgress());
+                    }
+                }
+                else
+                {
+                    displayMessageText.SetActive(value: true);
+                    displayMessageText.GetComponentInChildren<Text>().text = selectVehicleMessage;
+                }
 			break;
 		case 2:
 		{

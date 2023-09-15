@@ -42,10 +42,10 @@ public class RGKCarInputSwitcher : MonoBehaviour
 
 	private void Start()
 	{
-		if (m_SetByExternalCall || m_RaceManager.SplitScreen)
-		{
-			return;
-		}
+		//if (m_SetByExternalCall || m_RaceManager.SplitScreen)
+		//{
+		//	return;
+		//}
 		if (Application.platform == RuntimePlatform.tvOS)
 		{
 			m_KeyboarcController.enabled = false;

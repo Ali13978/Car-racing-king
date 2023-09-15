@@ -16795,9 +16795,7 @@ MonoBehaviour:
   oCamera1: {fileID: 1791205143261126195}
   oCamera2: {fileID: 0}
   Player1: {fileID: 0}
-  Player2: {fileID: 0}
   oAudioListener: {fileID: 0}
-  m_SplitScreen: 0
 --- !u!114 &1791205145156952589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37499,7 +37497,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 91176c1502704850b919268723fcad16, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -13,7 +13,7 @@ namespace RacingGameKit.UI
 
 		private RGKCar_Engine m_RGKCarEngine;
 
-		private bool IsSplitScreen;
+		private bool IsSplitScreen = false;
 
 		private SpeedoUI m_SpeedoUI;
 
@@ -25,10 +25,10 @@ namespace RacingGameKit.UI
 			if (gameObject != null)
 			{
 				m_RaceManager = gameObject.GetComponent<Race_Manager>();
-				if (m_RaceManager.SplitScreen)
-				{
-					IsSplitScreen = true;
-				}
+				//if (m_RaceManager.SplitScreen)
+				//{
+				//	IsSplitScreen = true;
+				//}
 			}
 			if (!IsSplitScreen)
 			{

@@ -139,22 +139,22 @@ namespace RacingGameKit.RGKCar.CarControllers
 				GetWaypoints();
 				if (!m_IsAiController)
 				{
-					if (!m_RaceManager.SplitScreen)
-					{
+					//if (!m_RaceManager.SplitScreen)
+					//{
 						m_RaceCamera = m_RaceManager.oCamera1.GetComponent<Race_Camera>();
-					}
-					else if (base.transform.gameObject == m_RaceManager.Player1.gameObject)
-					{
-						m_RaceCamera = m_RaceManager.oCamera1.GetComponent<Race_Camera>();
-					}
-					else if (base.transform.gameObject == m_RaceManager.Player2.gameObject)
-					{
-						m_RaceCamera = m_RaceManager.oCamera2.GetComponent<Race_Camera>();
-					}
-					else
-					{
-						UnityEngine.Debug.LogWarning("There's an error in split screen configuration. Cannot determinate which camera belongs this player..");
-					}
+					//}
+					//else if (base.transform.gameObject == m_RaceManager.Player1.gameObject)
+					//{
+					//	m_RaceCamera = m_RaceManager.oCamera1.GetComponent<Race_Camera>();
+					//}
+					//else if (base.transform.gameObject == m_RaceManager.Player2.gameObject)
+					//{
+					//	m_RaceCamera = m_RaceManager.oCamera2.GetComponent<Race_Camera>();
+					//}
+					//else
+					//{
+					//	UnityEngine.Debug.LogWarning("There's an error in split screen configuration. Cannot determinate which camera belongs this player..");
+					//}
 				}
 			}
 			else if (!m_IsAiController)

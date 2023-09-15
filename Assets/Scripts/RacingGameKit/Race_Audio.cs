@@ -183,14 +183,14 @@ namespace RacingGameKit
 
 		public void InitAudio()
 		{
-			if (RaceManager.SplitScreen)
-			{
-				GameCamera = RaceManager.oAudioListener;
-			}
-			else
-			{
+			//if (RaceManager.SplitScreen)
+			//{
+			//	GameCamera = RaceManager.oAudioListener;
+			//}
+			//else
+			//{
 				GameCamera = RaceManager.oCamera1;
-			}
+			//}
 			if (GameCamera == null)
 			{
 				UnityEngine.Debug.LogWarning("RGK WARNING\r\nGameCamera not attached to Game Audio script. Please be sure _GameCamera object created or attached. Game Audio Disabled.");

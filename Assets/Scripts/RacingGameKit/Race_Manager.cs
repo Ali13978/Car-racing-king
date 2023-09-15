@@ -176,7 +176,7 @@ namespace RacingGameKit
 
 		public GameObject Player1;
 
-		public GameObject Player2;
+		//public GameObject Player2;
 
 		public GameObject oAudioListener;
 
@@ -184,7 +184,7 @@ namespace RacingGameKit
 
 		private int checkCount = 5;
 
-		public bool m_SplitScreen;
+		//public bool m_SplitScreen;
 
 		private bool m_IsP1Deployed;
 
@@ -216,17 +216,17 @@ namespace RacingGameKit
 
 		public bool IsCounting => isCounting;
 
-		public bool SplitScreen
-		{
-			get
-			{
-				return m_SplitScreen;
-			}
-			set
-			{
-				m_SplitScreen = value;
-			}
-		}
+		//public bool SplitScreen
+		//{
+		//	get
+		//	{
+		//		return m_SplitScreen;
+		//	}
+		//	set
+		//	{
+		//		m_SplitScreen = value;
+		//	}
+		//}
 
 		public List<WayPointItem> WaypointItems
 		{
@@ -333,21 +333,21 @@ namespace RacingGameKit
 		private void Start()
 		{
 			UnityEngine.Debug.Log("==== Starting RGK v1.6 ====");
-			if (m_SplitScreen)
-			{
-				GameObject gameObject = GameObject.Find("_SplitScreenManager");
-				if (!(gameObject != null))
-				{
-					UnityEngine.Debug.LogWarning("RACING GAME KIT WARNING\r\nSplit Screen requires _SplitScreenManager object added to scene! Please check documentation for details!");
-					return;
-				}
-				m_SplitScreenManager = gameObject.GetComponent<RGKCar_C2_SplitScreenManager>();
-				if (oAudioListener == null)
-				{
-					UnityEngine.Debug.LogWarning("RACING GAME KIT WARNING\r\nSplit Screen requires AudioListener UnityEngine.Object added to scene! Please check documentation for details!");
-					return;
-				}
-			}
+			//if (m_SplitScreen)
+			//{
+			//	GameObject gameObject = GameObject.Find("_SplitScreenManager");
+			//	if (!(gameObject != null))
+			//	{
+			//		UnityEngine.Debug.LogWarning("RACING GAME KIT WARNING\r\nSplit Screen requires _SplitScreenManager object added to scene! Please check documentation for details!");
+			//		return;
+			//	}
+			//	m_SplitScreenManager = gameObject.GetComponent<RGKCar_C2_SplitScreenManager>();
+			//	if (oAudioListener == null)
+			//	{
+			//		UnityEngine.Debug.LogWarning("RACING GAME KIT WARNING\r\nSplit Screen requires AudioListener UnityEngine.Object added to scene! Please check documentation for details!");
+			//		return;
+			//	}
+			//}
 			if (RaceInitsOnStartup)
 			{
 				InitRaceInternal();
@@ -385,37 +385,37 @@ namespace RacingGameKit
 			else if (oCamera1 != null)
 			{
 				m_RGKCam_P1 = (oCamera1.GetComponent(typeof(IRGKCamera)) as IRGKCamera);
-				if (m_SplitScreen || oCamera2 != null)
-				{
-					m_RGKCam_P2 = (oCamera2.GetComponent(typeof(IRGKCamera)) as IRGKCamera);
-				}
+				//if (m_SplitScreen || oCamera2 != null)
+				//{
+				//	m_RGKCam_P2 = (oCamera2.GetComponent(typeof(IRGKCamera)) as IRGKCamera);
+				//}
 			}
-			if (m_SplitScreen || (oCamera1 != null && oCamera2 != null))
-			{
-				IRGKCamera rGKCam_P = m_RGKCam_P1;
-				bool enableStartupCamera = EnableStartupCamera;
-				m_RGKCam_P2.IsStartupAnimationEnabled = enableStartupCamera;
-				rGKCam_P.IsStartupAnimationEnabled = enableStartupCamera;
-				Transform transform = oCamera1.transform.Find("CheckpointArrow");
-				if (transform != null)
-				{
-					transform.gameObject.SetActive(EnableCheckpointArrow);
-				}
-				Transform transform2 = oCamera2.transform.Find("CheckpointArrow");
-				if (transform2 != null)
-				{
-					transform2.gameObject.SetActive(EnableCheckpointArrow);
-				}
-			}
-			else
-			{
+			//if (m_SplitScreen || (oCamera1 != null && oCamera2 != null))
+			//{
+			//	IRGKCamera rGKCam_P = m_RGKCam_P1;
+			//	bool enableStartupCamera = EnableStartupCamera;
+			//	m_RGKCam_P2.IsStartupAnimationEnabled = enableStartupCamera;
+			//	rGKCam_P.IsStartupAnimationEnabled = enableStartupCamera;
+			//	Transform transform = oCamera1.transform.Find("CheckpointArrow");
+			//	if (transform != null)
+			//	{
+			//		transform.gameObject.SetActive(EnableCheckpointArrow);
+			//	}
+			//	Transform transform2 = oCamera2.transform.Find("CheckpointArrow");
+			//	if (transform2 != null)
+			//	{
+			//		transform2.gameObject.SetActive(EnableCheckpointArrow);
+			//	}
+			//}
+			//else
+			//{
 				m_RGKCam_P1.IsStartupAnimationEnabled = EnableStartupCamera;
 				Transform transform3 = oCamera1.transform.Find("CheckpointArrow");
 				if (transform3 != null)
 				{
 					transform3.gameObject.SetActive(EnableCheckpointArrow);
 				}
-			}
+			//}
 			ListRacerNames = new List<string>(AIRacerNames);
 			if (CheckPoints == null || CheckPoints.transform.childCount == 0)
 			{
@@ -501,26 +501,26 @@ namespace RacingGameKit
 							}
 							if (component != null)
 							{
-								if (m_SplitScreen)
-								{
-									if (component.IsPlayer)
-									{
-										if (!m_IsP1Deployed)
-										{
-											m_RGKCam_P1.TargetVehicle = transform4;
-											ChangeSplitScreenPlayerControlrs(gameObject2, IsPlayer1: true);
-											m_IsP1Deployed = true;
-											Player1 = gameObject2;
-										}
-										else
-										{
-											m_RGKCam_P2.TargetVehicle = transform4;
-											ChangeSplitScreenPlayerControlrs(gameObject2, IsPlayer1: false);
-											Player2 = gameObject2;
-										}
-									}
-								}
-								else if (component.IsPlayer)
+								//if (m_SplitScreen)
+								//{
+								//	if (component.IsPlayer)
+								//	{
+								//		if (!m_IsP1Deployed)
+								//		{
+								//			m_RGKCam_P1.TargetVehicle = transform4;
+								//			ChangeSplitScreenPlayerControlrs(gameObject2, IsPlayer1: true);
+								//			m_IsP1Deployed = true;
+								//			Player1 = gameObject2;
+								//		}
+								//		else
+								//		{
+								//			m_RGKCam_P2.TargetVehicle = transform4;
+								//			ChangeSplitScreenPlayerControlrs(gameObject2, IsPlayer1: false);
+								//			Player2 = gameObject2;
+								//		}
+								//	}
+								//}
+								/*else */if (component.IsPlayer)
 								{
 									Player1 = gameObject2;
 									m_RGKCam_P1.TargetVehicle = transform4;
@@ -640,16 +640,16 @@ namespace RacingGameKit
 
 		private void LateUpdate()
 		{
-			if (!blnIsAudioMoved && m_SplitScreen)
-			{
-				MoveAudioSourcesToAudioListener(Player1);
-				MoveAudioSourcesToAudioListener(Player2);
-				checkCount--;
-				if (checkCount == 0)
-				{
-					blnIsAudioMoved = true;
-				}
-			}
+			//if (!blnIsAudioMoved && m_SplitScreen)
+			//{
+			//	MoveAudioSourcesToAudioListener(Player1);
+			//	MoveAudioSourcesToAudioListener(Player2);
+			//	checkCount--;
+			//	if (checkCount == 0)
+			//	{
+			//		blnIsAudioMoved = true;
+			//	}
+			//}
 		}
 
 		private void MoveAudioSourcesToAudioListener(GameObject Player)
@@ -1161,14 +1161,14 @@ namespace RacingGameKit
 			if (IsRaceStarted && !IsRaceFinished)
 			{
 				TimeTotal = Time.time - TimeTotalFix;
-				if (!m_SplitScreen)
-				{
+				//if (!m_SplitScreen)
+				//{
 					TimeCurrent = TimeTotal - CurrentTimeFixForPlayer;
-				}
-				else
-				{
-					TimeCurrent = TimeTotal;
-				}
+				//}
+				//else
+				//{
+				//	TimeCurrent = TimeTotal;
+				//}
 			}
 			else
 			{
