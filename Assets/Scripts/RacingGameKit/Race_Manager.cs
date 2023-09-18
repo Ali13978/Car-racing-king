@@ -3,14 +3,20 @@ using RacingGameKit.Helpers;
 using RacingGameKit.Interfaces;
 using RacingGameKit.RGKCar.CarControllers;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
+using System.IO;
+
+using static AliScripts.AliExtras;
 
 namespace RacingGameKit
 {
 	[AddComponentMenu("Racing Game Kit/Game Mechanics/Race Manager")]
 	[RequireComponent(typeof(SplineInterpolator))]
-	public class Race_Manager : MonoBehaviour
+	public class Race_Manager : MonoBehaviourPunCallbacks
 	{
 		public enum eOrientationMode
 		{
@@ -134,7 +140,7 @@ namespace RacingGameKit
 
 		public float DistancePointDensity = 5f;
 
-		[HideInInspector]
+		//[HideInInspector]
 		public GameObject DistanceTransformContainer;
 
 		private Transform[] DistanceMeasurementObjects;
@@ -254,6 +260,8 @@ namespace RacingGameKit
 
 		public event RacerKickedEventHandler OnRacerKicked;
 
+        private int numberOfSpaawnedCars = 0;
+
 		public int RegisterToGame(Racer_Detail GamerDetail)
 		{
 			int result = -1;
@@ -360,234 +368,295 @@ namespace RacingGameKit
 			InitRaceInternal();
 		}
 
-		private void InitRaceInternal()
-		{
-			if (RaceLaps < 1)
-			{
-				RaceLaps = 1;
-			}
-			if (RacePlayers < 1)
-			{
-				RacePlayers = 1;
-			}
-			GameUIComponent = (IRGKUI)base.transform.GetComponent(typeof(IRGKUI));
-			if (oCamera1 == null)
-			{
-				GameObject gameObject = GameObject.Find("_RaceCamera");
-				if (!(gameObject != null))
-				{
-					UnityEngine.Debug.LogError("RGK WARNING\r\nGameCamera is missing! RGK requires a camera script that implement iRGKCamera");
-					return;
-				}
-				oCamera1 = gameObject;
-				m_RGKCam_P1 = (gameObject.GetComponent(typeof(IRGKCamera)) as IRGKCamera);
-			}
-			else if (oCamera1 != null)
-			{
-				m_RGKCam_P1 = (oCamera1.GetComponent(typeof(IRGKCamera)) as IRGKCamera);
-				//if (m_SplitScreen || oCamera2 != null)
-				//{
-				//	m_RGKCam_P2 = (oCamera2.GetComponent(typeof(IRGKCamera)) as IRGKCamera);
-				//}
-			}
-			//if (m_SplitScreen || (oCamera1 != null && oCamera2 != null))
-			//{
-			//	IRGKCamera rGKCam_P = m_RGKCam_P1;
-			//	bool enableStartupCamera = EnableStartupCamera;
-			//	m_RGKCam_P2.IsStartupAnimationEnabled = enableStartupCamera;
-			//	rGKCam_P.IsStartupAnimationEnabled = enableStartupCamera;
-			//	Transform transform = oCamera1.transform.Find("CheckpointArrow");
-			//	if (transform != null)
-			//	{
-			//		transform.gameObject.SetActive(EnableCheckpointArrow);
-			//	}
-			//	Transform transform2 = oCamera2.transform.Find("CheckpointArrow");
-			//	if (transform2 != null)
-			//	{
-			//		transform2.gameObject.SetActive(EnableCheckpointArrow);
-			//	}
-			//}
-			//else
-			//{
-				m_RGKCam_P1.IsStartupAnimationEnabled = EnableStartupCamera;
-				Transform transform3 = oCamera1.transform.Find("CheckpointArrow");
-				if (transform3 != null)
-				{
-					transform3.gameObject.SetActive(EnableCheckpointArrow);
-				}
-			//}
-			ListRacerNames = new List<string>(AIRacerNames);
-			if (CheckPoints == null || CheckPoints.transform.childCount == 0)
-			{
-				UnityEngine.Debug.Log("RGK NOTIFICATION\r\nCheckpoint container not found or empty. Checkpoint System disabled!");
-			}
-			else if (CheckPoints.activeInHierarchy)
-			{
-				GetFirstCheckPoint();
-			}
-			if (SpawnPoints != null)
-			{
-				Transform[] childTransforms = GetChildTransforms(SpawnPoints.transform);
-				if (m_RGKCam_P1.TargetObjects == null)
-				{
-					m_RGKCam_P1.TargetObjects = new List<Transform>();
-				}
-				if (PlayerSpawnPosition > RacePlayers)
-				{
-					PlayerSpawnPosition = RacePlayers;
-				}
-				bool flag = false;
-				bool flag2 = false;
-				for (int i = 0; i < childTransforms.GetLength(0); i++)
-				{
-					GameObject gameObject2 = null;
-					if (HumanRacerPrefab != null && !HumanDeployed && i + 1 == PlayerSpawnPosition)
-					{
-						flag = true;
-					}
-					else if (AIRacerPrefab.Length > 0 && AIRacerPrefab[0] != null)
-					{
-						int num = 0;
-						if (AiSpawnOrder == eAISpawnOrder.Random)
-						{
-							if (AIRacerPrefab.Length > 1)
-							{
-								if (AiSpawnMode == eAISpawnMode.Random)
-								{
-									num = UnityEngine.Random.Range(0, AIRacerPrefab.Length);
-								}
-								else if (AiSpawnMode == eAISpawnMode.OneTimeEach)
-								{
-									num = FindNextNotSpawnedAiIndex();
-									if (num != -1)
-									{
-										m_SpawnedAIs.Add(num);
-										UnityEngine.Debug.Log("Spawn No " + num);
-									}
-									else
-									{
-										if (!HumanDeployed)
-										{
-											flag = true;
-										}
-										flag2 = true;
-									}
-								}
-							}
-						}
-						else if (AiSpawnOrder == eAISpawnOrder.Order)
-						{
-							num = LastSpawnedAIIndex;
-							LastSpawnedAIIndex++;
-							if (LastSpawnedAIIndex > AIRacerPrefab.Length)
-							{
-								num = -1;
-								flag2 = true;
-							}
-						}
-						if (num != -1)
-						{
-							gameObject2 = UnityEngine.Object.Instantiate(AIRacerPrefab[num], childTransforms[i].transform.position, childTransforms[i].transform.rotation);
-							gameObject2.GetType();
-							Transform transform4 = gameObject2.transform.Find("_CameraTarget");
-							Racer_Register component = gameObject2.GetComponent<Racer_Register>();
-							if (transform4 == null)
-							{
-								transform4 = gameObject2.transform;
-							}
-							if (m_RGKCam_P1.TargetObjects != null)
-							{
-								m_RGKCam_P1.TargetObjects.Add(transform4);
-							}
-							if (component != null)
-							{
-								//if (m_SplitScreen)
-								//{
-								//	if (component.IsPlayer)
-								//	{
-								//		if (!m_IsP1Deployed)
-								//		{
-								//			m_RGKCam_P1.TargetVehicle = transform4;
-								//			ChangeSplitScreenPlayerControlrs(gameObject2, IsPlayer1: true);
-								//			m_IsP1Deployed = true;
-								//			Player1 = gameObject2;
-								//		}
-								//		else
-								//		{
-								//			m_RGKCam_P2.TargetVehicle = transform4;
-								//			ChangeSplitScreenPlayerControlrs(gameObject2, IsPlayer1: false);
-								//			Player2 = gameObject2;
-								//		}
-								//	}
-								//}
-								/*else */if (component.IsPlayer)
-								{
-									Player1 = gameObject2;
-									m_RGKCam_P1.TargetVehicle = transform4;
-									m_IsP1Deployed = true;
-									HumanDeployed = true;
-								}
-							}
-							if (!m_IsP1Deployed)
-							{
-								m_RGKCam_P1.TargetVehicle = transform4;
-							}
-						}
-					}
-					if (flag)
-					{
-						gameObject2 = (Player1 = UnityEngine.Object.Instantiate(HumanRacerPrefab, childTransforms[i].transform.position, childTransforms[i].transform.rotation));
-						Transform transform5 = gameObject2.transform.Find("_CameraTarget");
-						if (transform5 == null)
-						{
-							transform5 = gameObject2.transform;
-						}
-						if (m_RGKCam_P1.TargetObjects != null)
-						{
-							m_RGKCam_P1.TargetObjects.Add(transform5);
-						}
-						m_RGKCam_P1.TargetVehicle = transform5;
-						HumanDeployed = true;
-						flag = false;
-						m_IsP1Deployed = true;
-					}
-					if (i + 1 == RacePlayers || flag2)
-					{
-						break;
-					}
-				}
-				CreateDistanceMeasurementTransforms();
-				CurrentCount = TimerCountdownFrom;
-				GameAudioComponent = (IRGKRaceAudio)base.transform.GetComponent(typeof(IRGKRaceAudio));
-				if (GameAudioComponent != null)
-				{
-					GameAudioComponent.InitAudio();
-				}
-				else
-				{
-					UnityEngine.Debug.LogWarning("RACING GAME KIT WARNING\r\nRace Audio component not found or disabled! Race Audio will not managed by RaceManager");
-				}
-				IsRaceReady = true;
-				if (this.OnRaceInitiated != null)
-				{
-					this.OnRaceInitiated();
-				}
-				if (RaceStartsOnStartup)
-				{
-					StartRace();
-				}
-				if (!StartMusicAfterCountdown && GameAudioComponent != null)
-				{
-					GameAudioComponent.PlayBackgroundMusic = true;
-				}
-				blnIsAudioMoved = false;
-			}
-			else
-			{
-				UnityEngine.Debug.LogWarning("RGK WARNING\r\nSpawnpints object is missing! ");
-				UnityEngine.Debug.DebugBreak();
-			}
-		}
+        private void InitRaceInternal()
+        {
+            if (RaceLaps < 1)
+            {
+                RaceLaps = 1;
+            }
+            if (RacePlayers < 1)
+            {
+                RacePlayers = 1;
+            }
+
+            GameUIComponent = (IRGKUI)base.transform.GetComponent(typeof(IRGKUI));
+            if (oCamera1 == null)
+            {
+                GameObject gameObject = GameObject.Find("_RaceCamera");
+                if (!(gameObject != null))
+                {
+                    UnityEngine.Debug.LogError("RGK WARNING\r\nGameCamera is missing! RGK requires a camera script that implement iRGKCamera");
+                    return;
+                }
+                oCamera1 = gameObject;
+                m_RGKCam_P1 = (gameObject.GetComponent(typeof(IRGKCamera)) as IRGKCamera);
+            }
+            else if (oCamera1 != null)
+            {
+                m_RGKCam_P1 = (oCamera1.GetComponent(typeof(IRGKCamera)) as IRGKCamera);
+                //if (m_SplitScreen || oCamera2 != null)
+                //{
+                //	m_RGKCam_P2 = (oCamera2.GetComponent(typeof(IRGKCamera)) as IRGKCamera);
+                //}
+            }
+            //if (m_SplitScreen || (oCamera1 != null && oCamera2 != null))
+            //{
+            //	IRGKCamera rGKCam_P = m_RGKCam_P1;
+            //	bool enableStartupCamera = EnableStartupCamera;
+            //	m_RGKCam_P2.IsStartupAnimationEnabled = enableStartupCamera;
+            //	rGKCam_P.IsStartupAnimationEnabled = enableStartupCamera;
+            //	Transform transform = oCamera1.transform.Find("CheckpointArrow");
+            //	if (transform != null)
+            //	{
+            //		transform.gameObject.SetActive(EnableCheckpointArrow);
+            //	}
+            //	Transform transform2 = oCamera2.transform.Find("CheckpointArrow");
+            //	if (transform2 != null)
+            //	{
+            //		transform2.gameObject.SetActive(EnableCheckpointArrow);
+            //	}
+            //}
+            //else
+            //{
+            m_RGKCam_P1.IsStartupAnimationEnabled = EnableStartupCamera;
+            Transform transform3 = oCamera1.transform.Find("CheckpointArrow");
+            if (transform3 != null)
+            {
+                transform3.gameObject.SetActive(EnableCheckpointArrow);
+            }
+            //}
+            ListRacerNames = new List<string>(AIRacerNames);
+            if (CheckPoints == null || CheckPoints.transform.childCount == 0)
+            {
+                UnityEngine.Debug.Log("RGK NOTIFICATION\r\nCheckpoint container not found or empty. Checkpoint System disabled!");
+            }
+            else if (CheckPoints.activeInHierarchy)
+            {
+                GetFirstCheckPoint();
+            }
+
+            if (PhotonNetworkManager.isMultiplayer)
+            {
+                RacePlayers = 1;
+
+                int NumberofPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
+                Dictionary<int, Player> Players = PhotonNetwork.CurrentRoom.Players;
+                
+                Player player = PhotonNetwork.LocalPlayer;
+                Transform spawnPoint = SpawnPoints.transform.GetChild(player.ActorNumber - 1).transform;
+                GameObject playerCar = null;
+
+                if (player.CustomProperties.TryGetValue("SelectedCarNumber", out object selectedCarNumberObj))
+                {
+                    int selectedCarNumber = (int)selectedCarNumberObj;
+                    string selectedCarName = carSelector.Instance.GetSelectedCarGameObject(selectedCarNumber).name;
+
+                    playerCar = PhotonNetwork.Instantiate(Path.Join("Cars", selectedCarName), spawnPoint.position, spawnPoint.rotation);
+                }
+
+                Player1 = playerCar;
+                Transform transform4 = playerCar.transform.Find("_CameraTarget");
+
+                m_RGKCam_P1.TargetVehicle = transform4;
+                m_IsP1Deployed = true;
+                HumanDeployed = true;
+
+                photonView.RPC("StartGameHostRPC", RpcTarget.MasterClient);
+            }
+
+            else
+            {
+                if (SpawnPoints != null)
+                {
+                    Transform[] childTransforms = GetChildTransforms(SpawnPoints.transform);
+                    if (m_RGKCam_P1.TargetObjects == null)
+                    {
+                        m_RGKCam_P1.TargetObjects = new List<Transform>();
+                    }
+                    if (PlayerSpawnPosition > RacePlayers)
+                    {
+                        PlayerSpawnPosition = RacePlayers;
+                    }
+                    bool flag = false;
+                    bool flag2 = false;
+                    for (int i = 0; i < childTransforms.GetLength(0); i++)
+                    {
+                        GameObject gameObject2 = null;
+                        if (HumanRacerPrefab != null && !HumanDeployed && i + 1 == PlayerSpawnPosition)
+                        {
+                            flag = true;
+                        }
+                        else if (AIRacerPrefab.Length > 0 && AIRacerPrefab[0] != null)
+                        {
+                            int num = 0;
+                            if (AiSpawnOrder == eAISpawnOrder.Random)
+                            {
+                                if (AIRacerPrefab.Length > 1)
+                                {
+                                    if (AiSpawnMode == eAISpawnMode.Random)
+                                    {
+                                        num = UnityEngine.Random.Range(0, AIRacerPrefab.Length);
+                                    }
+                                    else if (AiSpawnMode == eAISpawnMode.OneTimeEach)
+                                    {
+                                        num = FindNextNotSpawnedAiIndex();
+                                        if (num != -1)
+                                        {
+                                            m_SpawnedAIs.Add(num);
+                                            UnityEngine.Debug.Log("Spawn No " + num);
+                                        }
+                                        else
+                                        {
+                                            if (!HumanDeployed)
+                                            {
+                                                flag = true;
+                                            }
+                                            flag2 = true;
+                                        }
+                                    }
+                                }
+                            }
+                            else if (AiSpawnOrder == eAISpawnOrder.Order)
+                            {
+                                num = LastSpawnedAIIndex;
+                                LastSpawnedAIIndex++;
+                                if (LastSpawnedAIIndex > AIRacerPrefab.Length)
+                                {
+                                    num = -1;
+                                    flag2 = true;
+                                }
+                            }
+                            if (num != -1)
+                            {
+                                gameObject2 = UnityEngine.Object.Instantiate(AIRacerPrefab[num], childTransforms[i].transform.position, childTransforms[i].transform.rotation);
+                                gameObject2.GetType();
+                                Transform transform4 = gameObject2.transform.Find("_CameraTarget");
+                                Racer_Register component = gameObject2.GetComponent<Racer_Register>();
+                                if (transform4 == null)
+                                {
+                                    transform4 = gameObject2.transform;
+                                }
+                                if (m_RGKCam_P1.TargetObjects != null)
+                                {
+                                    m_RGKCam_P1.TargetObjects.Add(transform4);
+                                }
+                                if (component != null)
+                                {
+                                    //if (m_SplitScreen)
+                                    //{
+                                    //	if (component.IsPlayer)
+                                    //	{
+                                    //		if (!m_IsP1Deployed)
+                                    //		{
+                                    //			m_RGKCam_P1.TargetVehicle = transform4;
+                                    //			ChangeSplitScreenPlayerControlrs(gameObject2, IsPlayer1: true);
+                                    //			m_IsP1Deployed = true;
+                                    //			Player1 = gameObject2;
+                                    //		}
+                                    //		else
+                                    //		{
+                                    //			m_RGKCam_P2.TargetVehicle = transform4;
+                                    //			ChangeSplitScreenPlayerControlrs(gameObject2, IsPlayer1: false);
+                                    //			Player2 = gameObject2;
+                                    //		}
+                                    //	}
+                                    //}
+                                    /*else */
+                                    if (component.IsPlayer)
+                                    {
+                                        Player1 = gameObject2;
+                                        m_RGKCam_P1.TargetVehicle = transform4;
+                                        m_IsP1Deployed = true;
+                                        HumanDeployed = true;
+                                    }
+                                }
+                                if (!m_IsP1Deployed)
+                                {
+                                    m_RGKCam_P1.TargetVehicle = transform4;
+                                }
+                            }
+                        }
+                        if (flag)
+                        {
+                            gameObject2 = (Player1 = UnityEngine.Object.Instantiate(HumanRacerPrefab, childTransforms[i].transform.position, childTransforms[i].transform.rotation));
+                            Transform transform5 = gameObject2.transform.Find("_CameraTarget");
+                            if (transform5 == null)
+                            {
+                                transform5 = gameObject2.transform;
+                            }
+                            if (m_RGKCam_P1.TargetObjects != null)
+                            {
+                                m_RGKCam_P1.TargetObjects.Add(transform5);
+                            }
+                            m_RGKCam_P1.TargetVehicle = transform5;
+                            HumanDeployed = true;
+                            flag = false;
+                            m_IsP1Deployed = true;
+                        }
+                        if (i + 1 == RacePlayers || flag2)
+                        {
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    UnityEngine.Debug.LogWarning("RGK WARNING\r\nSpawnpints object is missing! ");
+                    UnityEngine.Debug.DebugBreak();
+                }
+            }
+
+            CreateDistanceMeasurementTransforms();
+            CurrentCount = TimerCountdownFrom;
+            GameAudioComponent = (IRGKRaceAudio)base.transform.GetComponent(typeof(IRGKRaceAudio));
+            if (GameAudioComponent != null)
+            {
+                GameAudioComponent.InitAudio();
+            }
+            else
+            {
+                UnityEngine.Debug.LogWarning("RACING GAME KIT WARNING\r\nRace Audio component not found or disabled! Race Audio will not managed by RaceManager");
+            }
+
+            IsRaceReady = true;
+
+            if (this.OnRaceInitiated != null)
+            {
+                this.OnRaceInitiated();
+            }
+            if (!PhotonNetworkManager.isMultiplayer)
+            {
+                if (RaceStartsOnStartup)
+                {
+                    StartRace();
+                }
+            }
+            if (!StartMusicAfterCountdown && GameAudioComponent != null)
+            {
+                GameAudioComponent.PlayBackgroundMusic = true;
+            }
+            blnIsAudioMoved = false;
+        }
+
+        [PunRPC]
+        private void StartGameHostRPC()
+        {
+            numberOfSpaawnedCars++;
+            Debug.Log("Start Race Host RPC executed; total players in room: " + PhotonNetwork.CurrentRoom.PlayerCount);
+            if (numberOfSpaawnedCars >= PhotonNetwork.CurrentRoom.PlayerCount)
+            {
+                StartCoroutine(Timer(2f, () => {
+                    photonView.RPC("StartRaceClientRPC", RpcTarget.All);
+                }));
+            }
+        }
+        
+        [PunRPC]
+        private void StartRaceClientRPC()
+        {
+            Debug.Log("Start Race Client RPC executed");
+            StartRace();
+        }
 
 		[Obsolete("This function is obsolete.Use StartRace instead.", false)]
 		public void StartGame()
@@ -599,8 +668,10 @@ namespace RacingGameKit
 		{
 			if (!IsRaceReady)
 			{
+                Debug.Log("Race not ready");
 				return;
 			}
+            Debug.Log("Race-Started");
 			if (GameUIComponent != null)
 			{
 				GameUIComponent.ShowCountdownWindow = true;

@@ -204,6 +204,8 @@ namespace RacingGameKit.UI
 
 		private void RaceManager_OnRaceInitiated()
 		{
+            if (PhotonNetworkManager.isMultiplayer)
+                return;
 			m_RaceManager.StartRace();
 		}
 

@@ -1,3 +1,4 @@
+//using Photon.Pun;
 using RacingGameKit.Interfaces;
 using UnityEngine;
 
@@ -40,8 +41,8 @@ namespace RacingGameKit.Racers
 		public float EscapeDistance => 0f;
 
 		private void Awake()
-		{
-			if (myTransform == null)
+        {
+            if (myTransform == null)
 			{
 				myTransform = base.transform.GetComponent<Transform>();
 				if (myTransform == null)
@@ -52,8 +53,8 @@ namespace RacingGameKit.Racers
 		}
 
 		private void Update()
-		{
-			CarSpeedKm = Mathf.Round(GetComponent<Rigidbody>().velocity.magnitude * 3.6f);
+        {
+            CarSpeedKm = Mathf.Round(GetComponent<Rigidbody>().velocity.magnitude * 3.6f);
 		}
 
 		private void OnDrawGizmos()

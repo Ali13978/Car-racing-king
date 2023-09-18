@@ -1,3 +1,4 @@
+using Photon.Pun;
 using RacingGameKit.RGKCar;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ namespace RacingGameKit.UI
 {
 	[AddComponentMenu("Racing Game Kit/UI/SpeedoUI Connector")]
 	[RequireComponent(typeof(RGKCar_Engine))]
-	public class RGKUI_RGKCar_SpeedoConnector : MonoBehaviour
+	public class RGKUI_RGKCar_SpeedoConnector : MonoBehaviourPunCallbacks
 	{
 		private Race_Manager m_RaceManager;
 
@@ -18,8 +19,11 @@ namespace RacingGameKit.UI
 		private SpeedoUI m_SpeedoUI;
 
 		private void Start()
-		{
-			m_RGKCarSetup = GetComponent<RGKCar_Setup>();
+        {
+            if (PhotonNetworkManager.isMultiplayer)
+                if (!photonView.IsMine)
+                    return;
+            m_RGKCarSetup = GetComponent<RGKCar_Setup>();
 			m_RGKCarEngine = GetComponent<RGKCar_Engine>();
 			GameObject gameObject = GameObject.Find("_RaceManager");
 			if (gameObject != null)
@@ -57,8 +61,11 @@ namespace RacingGameKit.UI
 		}
 
 		private void FixedUpdate()
-		{
-			if (m_SpeedoUI != null)
+        {
+            if (PhotonNetworkManager.isMultiplayer)
+                if (!photonView.IsMine)
+                    return;
+            if (m_SpeedoUI != null)
 			{
 				m_SpeedoUI.Speed = m_RGKCarEngine.SpeedAsKM;
 				string gear = m_RGKCarEngine.Gear.ToString();

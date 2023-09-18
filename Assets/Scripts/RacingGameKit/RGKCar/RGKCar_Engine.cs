@@ -1,3 +1,4 @@
+//using Photon.Pun;
 using System;
 using UnityEngine;
 
@@ -125,7 +126,7 @@ namespace RacingGameKit.RGKCar
 
 		private void Start()
 		{
-			CarSetup = GetComponent<RGKCar_Setup>();
+            CarSetup = GetComponent<RGKCar_Setup>();
 			CarAudio = GetComponent<RGKCar_CarAudioAdvanced>();
 			m_IsAuto = CarSetup.EngineData.Automatic;
 			ResetNos();
@@ -162,7 +163,8 @@ namespace RacingGameKit.RGKCar
 
 		private void FixedUpdate()
 		{
-			if (isClutch)
+
+            if (isClutch)
 			{
 				CurrentGear = 1;
 				intThrottle = 0f;

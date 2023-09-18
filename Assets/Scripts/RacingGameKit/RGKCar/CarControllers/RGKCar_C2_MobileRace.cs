@@ -43,8 +43,12 @@ namespace RacingGameKit.RGKCar.CarControllers
 		private bool m_IsFirstGearShifted;
 
 		public override void Start()
-		{
-			if (RGKMobileControls == null)
+        {
+            if (PhotonNetworkManager.isMultiplayer)
+                if (!photonView.IsMine)
+                    return;
+
+            if (RGKMobileControls == null)
 			{
 				RGKMobileControls = GameObject.Find("_TouchDriveProManager");
 			}
@@ -73,8 +77,12 @@ namespace RacingGameKit.RGKCar.CarControllers
 		}
 
 		public override void Update()
-		{
-			if (base.RaceManager == null || touchDriveManager == null)
+        {
+            if (PhotonNetworkManager.isMultiplayer)
+                if (!photonView.IsMine)
+                    return;
+
+            if (base.RaceManager == null || touchDriveManager == null)
 			{
 				return;
 			}

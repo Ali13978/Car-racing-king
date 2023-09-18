@@ -1,12 +1,15 @@
 using CinemaDirector;
+using Photon.Pun;
+using Photon.Realtime;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static AliScripts.AliExtras;
 
-public class MainMenuScript : MonoBehaviour
+public class MainMenuScript : MonoBehaviourPunCallbacks
 {
 	public enum MainMenuState
 	{
@@ -194,8 +197,6 @@ public class MainMenuScript : MonoBehaviour
 
     [SerializeField] GameObject panel;
 
-    public bool isMultiplayer;
-
     private void Start()
 	{
         Time.timeScale = 1f;
@@ -266,17 +267,18 @@ public class MainMenuScript : MonoBehaviour
         
         editLobbyPlayersAction = () => {
             DestroyChildren(playersHolder);
-            Unity.Services.Lobbies.Models.Lobby joinedLobby = LobbyManager.instance.GetJoinedLobby();
 
-            for(int i = 0; i < joinedLobby.Players.Count; i++)
+            Room currentRoom = PhotonNetwork.CurrentRoom;
+
+            foreach (var i in currentRoom.Players.Values)
             {
                 GameObject player = Instantiate(playerInLobbyPrefab, playersHolder.transform);
                 PlayerInRoom _player = player.GetComponent<PlayerInRoom>();
 
-                _player.UpdatePlayerUI(joinedLobby.Players[i].Data["PlayerName"].Value);
+                _player.UpdatePlayerUI(i.NickName);
             }
 
-            if (joinedLobby.HostId != LoginManager.instance.GetPlayerId())
+            if (!PhotonNetwork.IsMasterClient)
                 startGameBtn.gameObject.SetActive(false);
         };
 
@@ -289,17 +291,32 @@ public class MainMenuScript : MonoBehaviour
             PlayerPrefs.SetString("PlayerName", playerName);
             mainMenuPannel.SetActive(true);
             setupNamePannel.SetActive(false);
+            PhotonNetwork.LocalPlayer.NickName = PlayerPrefs.GetString("PlayerName");
         });
-	}
 
+        PhotonNetwork.AutomaticallySyncScene = true;
+
+        startGameBtn.onClick.AddListener(()=>
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.CurrentRoom.IsOpen = false;
+                PhotonNetwork.LoadLevel(selectedLevel);
+            }
+        });
+
+        PhotonNetwork.LocalPlayer.NickName = PlayerPrefs.GetString("PlayerName");
+    }
+    
 	private void Update()
 	{
 		cashPlaceHolder.text = PlayerPrefs.GetInt("Cash").ToString();
 	}
+    
 
     public void SetIsMultiplayer(bool _isMultiplayer)
     {
-        isMultiplayer = _isMultiplayer;
+        PhotonNetworkManager.isMultiplayer = _isMultiplayer;
     }
 
 	public void playScreenOptions(int option)
@@ -470,17 +487,30 @@ public class MainMenuScript : MonoBehaviour
 			buttonClick();
                 if (PlayerPrefs.GetInt("Vehicle " + vehicleCounter.ToString()) == 1)
                 {
-                    if (isMultiplayer)
+                    if (PhotonNetworkManager.isMultiplayer)
                     {
                         loadingScrenCanvas.SetActive(true);
                         //createJoinRoomPannel.SetActive(false);
 
                         LobbyManager.instance.QuickJoinLobby(() =>
                         {
-                            Unity.Services.Lobbies.Models.Lobby joinedLobby = LobbyManager.instance.GetJoinedLobby();
-                            lobbyCodeText.text = joinedLobby.LobbyCode;
+                            Room currentRoom = PhotonNetwork.CurrentRoom;
+                            lobbyCodeText.text = currentRoom.Name;
                             loadingScrenCanvas.SetActive(false);
                             lobbyPannel.SetActive(true);
+
+                            PlayerPrefs.SetInt("SelectedVehicle", vehicleCounter);
+                            int selectedCarNumber = vehicleCounter;
+
+                            // Get the local player
+                            Player localPlayer = Photon.Pun.PhotonNetwork.LocalPlayer;
+
+                            // Create a custom properties dictionary to hold the selected car number
+                            ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable();
+                            customProperties["SelectedCarNumber"] = selectedCarNumber;
+
+                            // Set the custom properties for the local player and broadcast them to others
+                            localPlayer.SetCustomProperties(customProperties);
 
                         }, () =>
                         {
@@ -495,6 +525,7 @@ public class MainMenuScript : MonoBehaviour
                         vehicleSelectionCanvas.SetActive(value: false);
                         loadingScrenCanvas.SetActive(value: true);
                         PlayerPrefs.SetInt("SelectedVehicle", vehicleCounter);
+                        Debug.Log("Vehicle Counter: " + vehicleCounter.ToString());
                         loadingProgress = SceneManager.LoadSceneAsync(selectedLevel);
                         StartCoroutine(showProgress());
                     }
@@ -806,4 +837,9 @@ public class MainMenuScript : MonoBehaviour
 	{
 		noAdsCanvas.SetActive(value: false);
 	}
+
+    public void LoadingScreenCanvasSetActive(bool isActive)
+    {
+        loadingScrenCanvas.SetActive(isActive);
+    }
 }

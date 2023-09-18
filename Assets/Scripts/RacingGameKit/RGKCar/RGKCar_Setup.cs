@@ -1,3 +1,4 @@
+//using Photon.Pun;
 using RacingGameKit.Helpers;
 using System;
 using UnityEngine;
@@ -222,8 +223,8 @@ namespace RacingGameKit.RGKCar
 		private GameObject SkidMarks;
 
 		private void Awake()
-		{
-			vehicleRbody = base.transform.GetComponent<Rigidbody>();
+        {
+            vehicleRbody = base.transform.GetComponent<Rigidbody>();
 			if (RigidbodySleepOnAwake)
 			{
 				GetComponent<Rigidbody>().Sleep();
@@ -232,6 +233,7 @@ namespace RacingGameKit.RGKCar
 
 		private void Start()
 		{
+
 			Nitro.NitroLeft = Nitro.InitialAmount;
 			if (CenterOfMass != null)
 			{
@@ -254,8 +256,9 @@ namespace RacingGameKit.RGKCar
 		}
 
 		private void FixedUpdate()
-		{
-			if (SetupMode)
+        {
+
+            if (SetupMode)
 			{
 				updateVehicleConfig();
 			}

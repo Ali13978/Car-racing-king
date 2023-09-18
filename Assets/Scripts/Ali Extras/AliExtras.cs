@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace AliScripts
 {
@@ -30,6 +31,12 @@ namespace AliScripts
                 Debug.LogError("Failed to parse using bool.Parse()");
                 return false;
             }
+        }
+
+        public static IEnumerator Timer(float seconds, Action AfterTimer)
+        {
+            yield return new WaitForSeconds(seconds);
+            AfterTimer?.Invoke();
         }
     }
 }

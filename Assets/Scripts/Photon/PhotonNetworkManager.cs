@@ -1,14 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using QFSW.QC;
 
 public class PhotonNetworkManager : MonoBehaviourPunCallbacks
 {
     public static PhotonNetworkManager Instance;
+    public Action onJoinedRoomSucc;
+    public Action onJoinedRoomFail;
+
+
+    public static bool isMultiplayer;
 
     public override void OnEnable()
     {
@@ -31,28 +36,37 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks
         {
             Destroy(gameObject);
         }
+
     }
 
     private void Start()
     {
+        MainMenuScript.instance.LoadingScreenCanvasSetActive(true);
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public override void OnConnectedToMaster()
     {
+        MainMenuScript.instance.LoadingScreenCanvasSetActive(false);
         Debug.Log("Player connected to master server in " + PhotonNetwork.CloudRegion + " region");
     }
-
-    [Command]
-    public void CreateRoom(string _roomName)
+    
+    public void CreateRoom(string _levelName)
     {
+
+        string _roomName = UnityEngine.Random.Range(1, 100000).ToString();
+        ExitGames.Client.Photon.Hashtable _customRoomProperties = new ExitGames.Client.Photon.Hashtable();
+        _customRoomProperties["LevelQuery"] = _levelName;
+
         RoomOptions options = new RoomOptions
         {
             IsVisible = true,
             IsOpen = true,
-            MaxPlayers = 6
+            MaxPlayers = 6,
+            CustomRoomProperties = _customRoomProperties
         };
+
         PhotonNetwork.CreateRoom(_roomName, options);
         Debug.Log("Create room with name: " + _roomName);
     }
@@ -61,8 +75,7 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Failed to create photon room: Error code " + returnCode + "\nError message: " + message);
     }
-
-    [Command]
+    
     public void JoinRoom(string roomName)
     {
         PhotonNetwork.JoinRoom(roomName);
@@ -71,9 +84,16 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Room Joined");
+        onJoinedRoomSucc?.Invoke();
     }
 
-    [Command]
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        base.OnJoinRandomFailed(returnCode, message);
+        Debug.Log("Failed to quick join error code: " + returnCode + "; message: " + message);
+        onJoinedRoomFail?.Invoke();
+    }
+
     public void StartGame()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -83,7 +103,11 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks
         }
     }
 
-    [Command]
+    public void QuickJoinRoom(string _levelName)
+    {
+        PhotonNetwork.JoinOrCreateRoom(_levelName, new RoomOptions { MaxPlayers = 6 }, TypedLobby.Default);
+    }
+    
     public void LeaveRoom()
     {
         Debug.Log("Left room");

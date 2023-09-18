@@ -1,3 +1,4 @@
+//using Photon.Pun;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -195,8 +196,8 @@ public class DamageFX : MonoBehaviour
 	public bool dfxEdVarsDebug;
 
 	private void Start()
-	{
-		if (!base.enabled)
+    {
+        if (!base.enabled)
 		{
 			return;
 		}
@@ -225,8 +226,8 @@ public class DamageFX : MonoBehaviour
 	}
 
 	private void LateUpdate()
-	{
-		if (Health.VehicleHealth <= Health.EngineSmokePercent / 100f * healthOrig)
+    {
+        if (Health.VehicleHealth <= Health.EngineSmokePercent / 100f * healthOrig)
 		{
 			isEngineSmoking = true;
 		}
@@ -248,8 +249,8 @@ public class DamageFX : MonoBehaviour
 	}
 
 	private void Update()
-	{
-		ProcessRepair();
+    {
+        ProcessRepair();
 	}
 
 	private void InitMeshFilters()

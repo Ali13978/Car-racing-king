@@ -1,3 +1,4 @@
+//using Photon.Pun;
 using UnityEngine;
 
 namespace RacingGameKit.RGKCar
@@ -12,8 +13,8 @@ namespace RacingGameKit.RGKCar
 		public float coefficient = 5000f;
 
 		private void FixedUpdate()
-		{
-			if (wheel1 != null && wheel2 != null && base.enabled)
+        {
+            if (wheel1 != null && wheel2 != null && base.enabled)
 			{
 				float num = (wheel1.compression - wheel2.compression) * coefficient;
 				wheel1.suspensionForceInput = num;

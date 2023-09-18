@@ -4,7 +4,7 @@ namespace RacingGameKit.RGKCar.CarControllers
 {
 	[RequireComponent(typeof(RGKCar_Engine))]
 	[AddComponentMenu("Racing Game Kit/Vehicle Controllers/RGKCar C2 - Human Controller")]
-	public class RGKCar_C2_Human : RGKCar_C2_ControllerControllerBase
+	public class RGKCar_C2_Human : RGKCar_C2_ControllerControllerBase 
 	{
 		public bool SmoothThrottle = true;
 
@@ -39,13 +39,19 @@ namespace RacingGameKit.RGKCar.CarControllers
 		private bool m_IsFirstGearShifted;
 
 		public override void Start()
-		{
-			base.Start();
+        {
+            if (PhotonNetworkManager.isMultiplayer)
+                if (!photonView.IsMine)
+                    return;
+            base.Start();
 		}
 
 		public override void Update()
-		{
-			smoothThrottle = SmoothThrottle;
+        {
+            if (PhotonNetworkManager.isMultiplayer)
+                if (!photonView.IsMine)
+                    return;
+            smoothThrottle = SmoothThrottle;
 			smoothSteering = SmoothSteering;
 			ThrottlePressed = ((UnityEngine.Input.GetAxisRaw(ControlsThrottleBinding) > 0f) ? true : false);
 			BrakePressed = ((UnityEngine.Input.GetAxisRaw(ControlsBrakeBinding) > 0f) ? true : false);

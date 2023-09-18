@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 namespace RacingGameKit.RGKCar.CarControllers
 {
 	[AddComponentMenu("")]
-	public class RGKCar_C2_ControllerControllerBase : MonoBehaviour
+	public class RGKCar_C2_ControllerControllerBase : MonoBehaviourPunCallbacks
 	{
 		internal bool m_IsAiController;
 
