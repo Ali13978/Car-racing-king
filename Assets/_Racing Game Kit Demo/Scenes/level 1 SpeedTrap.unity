@@ -123,6 +123,28 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 658cac15735fac242b5d41ad3f6eef26, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 43bc81b9e4c361a4d99da61d8cb1763e, type: 2}
+--- !u!114 &1532728196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791205143261125763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1791205143261125760
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +208,7 @@ GameObject:
   - component: {fileID: 1791205145156952608}
   - component: {fileID: 1791205145156952607}
   - component: {fileID: 1791205145156952610}
+  - component: {fileID: 1532728196}
   m_Layer: 0
   m_Name: _RaceManager
   m_TagString: 
@@ -17165,9 +17188,7 @@ MonoBehaviour:
   oCamera1: {fileID: 1791205143261126216}
   oCamera2: {fileID: 0}
   Player1: {fileID: 0}
-  Player2: {fileID: 0}
   oAudioListener: {fileID: 0}
-  m_SplitScreen: 0
 --- !u!114 &1791205145156952609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17198,7 +17219,7 @@ MonoBehaviour:
   m_SpriteStartYellow: {fileID: 21300000, guid: 9da7e716bdb14165affeb54dfb17a871, type: 3}
   m_SpriteStartGreen: {fileID: 21300000, guid: 2b62720e57394b6caff3a9774c16071e, type: 3}
   m_ShowPlayerGrid: 0
-  m_GridUpdateInterval: 0.5
+  m_GridUpdateInterval: 0.44
   m_EnableTimerFriction: 1
   m_ShowFPS: 0
   m_FpsUpdateInterval: 0.5
@@ -24846,7 +24867,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1791205147002446187}
   m_Direction: 0
   m_Value: 1.0000001
-  m_Size: 0.2720863
+  m_Size: 0.13604304
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

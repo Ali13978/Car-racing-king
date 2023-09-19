@@ -123,6 +123,28 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 21f1bfa5a307a4c418619cdacce75615, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: e4a9ff6c421502e4b8dc52ed7cb9515d, type: 2}
+--- !u!114 &497616254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791205143261125756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1791205143261125753
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +209,7 @@ GameObject:
   - component: {fileID: 1791205145156952743}
   - component: {fileID: 1791205145156952742}
   - component: {fileID: 1791205145156952745}
+  - component: {fileID: 497616254}
   m_Layer: 0
   m_Name: _RaceManager
   m_TagString: 
@@ -17551,7 +17574,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 60
   orthographic: 0
   orthographic size: 100
@@ -19359,9 +19382,7 @@ MonoBehaviour:
   oCamera1: {fileID: 1791205143261126265}
   oCamera2: {fileID: 0}
   Player1: {fileID: 0}
-  Player2: {fileID: 0}
   oAudioListener: {fileID: 0}
-  m_SplitScreen: 0
 --- !u!114 &1791205145156952744
 MonoBehaviour:
   m_ObjectHideFlags: 0

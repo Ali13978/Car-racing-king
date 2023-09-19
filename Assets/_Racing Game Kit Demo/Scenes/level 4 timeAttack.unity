@@ -123,6 +123,28 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 6e7503be3ceb39747897891304dda0fd, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: cbcc4a138c7056c418da7a2b7c9145b2, type: 2}
+--- !u!114 &932327267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791205143261125753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1791205143261125749
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +228,7 @@ GameObject:
   - component: {fileID: 1791205145156952900}
   - component: {fileID: 1791205145156952899}
   - component: {fileID: 1791205145156952902}
+  - component: {fileID: 932327267}
   m_Layer: 0
   m_Name: _RaceManager
   m_TagString: 
@@ -22647,9 +22670,7 @@ MonoBehaviour:
   oCamera1: {fileID: 1791205143261126265}
   oCamera2: {fileID: 0}
   Player1: {fileID: 0}
-  Player2: {fileID: 0}
   oAudioListener: {fileID: 0}
-  m_SplitScreen: 0
 --- !u!114 &1791205145156952901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36238,7 +36259,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1791205147002446531}
   m_Direction: 0
   m_Value: 1.0000001
-  m_Size: 0.2720863
+  m_Size: 0.13604304
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

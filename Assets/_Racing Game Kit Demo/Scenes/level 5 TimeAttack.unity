@@ -123,6 +123,28 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: b24c6e4db3d72b442b13f50c8afe32a6, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: d2c46b07a9cf03e40abee74f8e870ead, type: 2}
+--- !u!114 &1234363501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791205143261125756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1791205143261125753
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +209,7 @@ GameObject:
   - component: {fileID: 1791205145156952746}
   - component: {fileID: 1791205145156952745}
   - component: {fileID: 1791205145156952748}
+  - component: {fileID: 1234363501}
   m_Layer: 0
   m_Name: _RaceManager
   m_TagString: 
@@ -19314,8 +19337,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2699.472, y: 13.67477, z: -155.7336}
-  RightLine: {x: 2692.826, y: 9.572118, z: -166.2255}
+  LeftLine: {x: 2699.4724, y: 13.674772, z: -155.73355}
+  RightLine: {x: 2692.826, y: 9.57212, z: -166.2255}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952743
@@ -19335,8 +19358,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1922.351, y: -1.814831, z: -906.0529}
-  RightLine: {x: 1926.329, y: -0.6532926, z: -894.287}
+  LeftLine: {x: 1922.3511, y: -1.814831, z: -906.05286}
+  RightLine: {x: 1926.3287, y: -0.6532928, z: -894.28705}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952744
@@ -19356,8 +19379,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2460.208, y: 17.0337, z: 137.7768}
-  RightLine: {x: 2461.359, y: 13.3868, z: 125.4101}
+  LeftLine: {x: 2460.208, y: 17.033691, z: 137.77676}
+  RightLine: {x: 2461.3584, y: 13.386801, z: 125.41012}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952745
@@ -19453,9 +19476,7 @@ MonoBehaviour:
   oCamera1: {fileID: 1791205143261126249}
   oCamera2: {fileID: 0}
   Player1: {fileID: 0}
-  Player2: {fileID: 0}
   oAudioListener: {fileID: 0}
-  m_SplitScreen: 0
 --- !u!114 &1791205145156952747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19507,8 +19528,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2040.921, y: 5.12111, z: -707.8444}
-  RightLine: {x: 2037.974, y: 2.407149, z: -719.9099}
+  LeftLine: {x: 2040.9209, y: 5.12111, z: -707.8445}
+  RightLine: {x: 2037.9742, y: 2.4071488, z: -719.91}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952750
@@ -19669,8 +19690,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1859.77, y: -5.510046, z: -884.7626}
-  RightLine: {x: 1866.057, y: -3.977391, z: -874.0515}
+  LeftLine: {x: 1859.7701, y: -5.510046, z: -884.7626}
+  RightLine: {x: 1866.0575, y: -3.9773915, z: -874.0515}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952758
@@ -19718,8 +19739,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2374.879, y: 3.059154, z: -304.6271}
-  RightLine: {x: 2376.9, y: -0.3484102, z: -292.3727}
+  LeftLine: {x: 2374.8787, y: 3.059154, z: -304.6271}
+  RightLine: {x: 2376.9, y: -0.34841082, z: -292.3727}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952761
@@ -19787,8 +19808,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2165.552, y: 19.55248, z: -320.5024}
-  RightLine: {x: 2164.181, y: 19.27157, z: -308.1583}
+  LeftLine: {x: 2165.5525, y: 19.552486, z: -320.50247}
+  RightLine: {x: 2164.1814, y: 19.271572, z: -308.15836}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952764
@@ -19894,8 +19915,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2782.658, y: 22.62343, z: -216.3003}
-  RightLine: {x: 2771.942, y: 20.94624, z: -222.5793}
+  LeftLine: {x: 2782.658, y: 22.623432, z: -216.3003}
+  RightLine: {x: 2771.942, y: 20.946241, z: -222.57933}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952767
@@ -20061,8 +20082,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2389.579, y: 29.81369, z: -36.88546}
-  RightLine: {x: 2401.829, y: 29.91474, z: -34.84069}
+  LeftLine: {x: 2389.5789, y: 29.813686, z: -36.885464}
+  RightLine: {x: 2401.8293, y: 29.914734, z: -34.84069}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952772
@@ -20082,8 +20103,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1749.9, y: 7.757071, z: -555.4257}
-  RightLine: {x: 1760.824, y: 7.497991, z: -561.3353}
+  LeftLine: {x: 1749.9001, y: 7.7570715, z: -555.4257}
+  RightLine: {x: 1760.824, y: 7.4979916, z: -561.3353}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952773
@@ -20181,8 +20202,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2406.685, y: 3.694364, z: -351.6328}
-  RightLine: {x: 2418.143, y: 3.984441, z: -346.8415}
+  LeftLine: {x: 2406.6848, y: 3.6943634, z: -351.63272}
+  RightLine: {x: 2418.1433, y: 3.9844406, z: -346.84143}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952777
@@ -20246,8 +20267,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2607.825, y: 10.35116, z: -42.67985}
-  RightLine: {x: 2595.418, y: 10.68918, z: -43.24744}
+  LeftLine: {x: 2607.8247, y: 10.351161, z: -42.679848}
+  RightLine: {x: 2595.4175, y: 10.689187, z: -43.24744}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952780
@@ -20295,8 +20316,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1811.346, y: -11.79767, z: -121.6074}
-  RightLine: {x: 1816.44, y: -10.92322, z: -110.2798}
+  LeftLine: {x: 1811.3462, y: -11.797676, z: -121.60736}
+  RightLine: {x: 1816.4396, y: -10.923223, z: -110.2798}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952783
@@ -20443,8 +20464,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2107.132, y: 9.755639, z: 116.5894}
-  RightLine: {x: 2109.372, y: 6.541355, z: 104.3732}
+  LeftLine: {x: 2107.132, y: 9.755638, z: 116.58941}
+  RightLine: {x: 2109.3726, y: 6.541354, z: 104.37317}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952789
@@ -20612,7 +20633,7 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2414.49, y: 9.747622, z: -590.8936}
+  LeftLine: {x: 2414.49, y: 9.7476225, z: -590.8936}
   RightLine: {x: 2426.91, y: 9.747281, z: -590.8864}
   ShowIconGizmo: 0
   ShowLines: 1
@@ -20633,8 +20654,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2516.972, y: 24.41376, z: 140.0474}
-  RightLine: {x: 2515.539, y: 20.45162, z: 127.7104}
+  LeftLine: {x: 2516.972, y: 24.413752, z: 140.04742}
+  RightLine: {x: 2515.5388, y: 20.451614, z: 127.71036}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952796
@@ -20654,8 +20675,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1962.908, y: 18.3425, z: -465.4131}
-  RightLine: {x: 1957.477, y: 19.67482, z: -476.5826}
+  LeftLine: {x: 1962.9086, y: 18.342497, z: -465.4131}
+  RightLine: {x: 1957.4773, y: 19.67482, z: -476.58258}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952797
@@ -20913,8 +20934,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1760.111, y: -6.882771, z: 21.07355}
-  RightLine: {x: 1772.471, y: -6.893208, z: 19.85309}
+  LeftLine: {x: 1760.1111, y: -6.8827705, z: 21.073551}
+  RightLine: {x: 1772.471, y: -6.8932076, z: 19.853088}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952811
@@ -20978,8 +20999,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2124.653, y: 19.81073, z: -325.01}
-  RightLine: {x: 2124.743, y: 19.83814, z: -312.5903}
+  LeftLine: {x: 2124.6526, y: 19.810736, z: -325.00995}
+  RightLine: {x: 2124.7434, y: 19.838144, z: -312.59027}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952814
@@ -21110,8 +21131,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2320.208, y: 6.78976, z: -715.8229}
-  RightLine: {x: 2323.547, y: 9.122848, z: -727.7856}
+  LeftLine: {x: 2320.208, y: 6.7897596, z: -715.8228}
+  RightLine: {x: 2323.5474, y: 9.122848, z: -727.7855}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952820
@@ -21281,8 +21302,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1787.674, y: -1.566353, z: 107.7696}
-  RightLine: {x: 1794.775, y: -1.777206, z: 97.58019}
+  LeftLine: {x: 1787.6732, y: -1.5663533, z: 107.7696}
+  RightLine: {x: 1794.7748, y: -1.7772067, z: 97.580185}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952826
@@ -21532,8 +21553,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1762.165, y: -5.602651, z: 41.64875}
-  RightLine: {x: 1774.375, y: -5.642846, z: 39.37124}
+  LeftLine: {x: 1762.1653, y: -5.6026506, z: 41.648754}
+  RightLine: {x: 1774.3748, y: -5.642845, z: 39.371243}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952834
@@ -21553,8 +21574,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2614.62, y: 6.366194, z: -88.46655}
-  RightLine: {x: 2604.938, y: 5.810568, z: -96.2452}
+  LeftLine: {x: 2614.62, y: 6.366194, z: -88.46656}
+  RightLine: {x: 2604.9377, y: 5.810568, z: -96.24521}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952835
@@ -21663,8 +21684,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2256.085, y: 15.70969, z: -307.1713}
-  RightLine: {x: 2254.08, y: 14.15996, z: -294.9141}
+  LeftLine: {x: 2256.0852, y: 15.709682, z: -307.1713}
+  RightLine: {x: 2254.0806, y: 14.159956, z: -294.91412}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952839
@@ -21698,8 +21719,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2555.75, y: 28.68935, z: 135.3153}
-  RightLine: {x: 2551.969, y: 25.4899, z: 123.485}
+  LeftLine: {x: 2555.7502, y: 28.689352, z: 135.31534}
+  RightLine: {x: 2551.969, y: 25.489897, z: 123.484985}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952841
@@ -21733,8 +21754,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2620.702, y: 23.29913, z: 32.40033}
-  RightLine: {x: 2608.508, y: 21.85832, z: 34.76138}
+  LeftLine: {x: 2620.702, y: 23.299133, z: 32.40033}
+  RightLine: {x: 2608.5078, y: 21.858324, z: 34.76138}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952843
@@ -21860,8 +21881,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2048.908, y: 19.18607, z: -318.6773}
-  RightLine: {x: 2054.417, y: 19.57785, z: -307.546}
+  LeftLine: {x: 2048.9075, y: 19.186071, z: -318.67734}
+  RightLine: {x: 2054.4167, y: 19.577848, z: -307.54605}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952849
@@ -22308,8 +22329,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2613.413, y: 16.65658, z: -6.272273}
-  RightLine: {x: 2601.137, y: 15.67785, z: -4.386114}
+  LeftLine: {x: 2613.4128, y: 16.656572, z: -6.2722726}
+  RightLine: {x: 2601.1367, y: 15.677839, z: -4.3861136}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952866
@@ -22651,8 +22672,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2186.899, y: 19.87488, z: 121.869}
-  RightLine: {x: 2181.683, y: 17.19564, z: 110.5976}
+  LeftLine: {x: 2186.9, y: 19.874887, z: 121.86903}
+  RightLine: {x: 2181.6833, y: 17.195646, z: 110.597565}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952879
@@ -22728,8 +22749,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2815.902, y: 25.43885, z: -599.1598}
-  RightLine: {x: 2803.701, y: 25.4873, z: -596.8364}
+  LeftLine: {x: 2815.9014, y: 25.43885, z: -599.1598}
+  RightLine: {x: 2803.7007, y: 25.487305, z: -596.8364}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952884
@@ -22856,8 +22877,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2223.6, y: 21.50524, z: 48.36871}
-  RightLine: {x: 2211.301, y: 21.33703, z: 50.09973}
+  LeftLine: {x: 2223.5994, y: 21.505241, z: 48.36871}
+  RightLine: {x: 2211.3005, y: 21.337038, z: 50.09973}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952890
@@ -22926,8 +22947,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2282.664, y: 29.75966, z: -107.1438}
-  RightLine: {x: 2282.837, y: 26.49892, z: -119.5627}
+  LeftLine: {x: 2282.6638, y: 29.759659, z: -107.14378}
+  RightLine: {x: 2282.837, y: 26.498924, z: -119.56264}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952893
@@ -23106,8 +23127,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2412.373, y: 7.922913, z: -394.0229}
-  RightLine: {x: 2424.674, y: 8.003602, z: -392.3112}
+  LeftLine: {x: 2412.372, y: 7.922912, z: -394.02283}
+  RightLine: {x: 2424.6738, y: 8.003601, z: -392.31116}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952900
@@ -23292,8 +23313,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2634.281, y: 7.904284, z: -113.3191}
-  RightLine: {x: 2627.069, y: 5.59284, z: -123.4309}
+  LeftLine: {x: 2634.2805, y: 7.9042835, z: -113.31909}
+  RightLine: {x: 2627.069, y: 5.5928407, z: -123.430954}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952909
@@ -23313,8 +23334,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2357.07, y: 3.179907, z: -705.7446}
-  RightLine: {x: 2363.534, y: 4.04693, z: -716.3501}
+  LeftLine: {x: 2357.07, y: 3.1799073, z: -705.74457}
+  RightLine: {x: 2363.5337, y: 4.0469303, z: -716.3501}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952910
@@ -23364,8 +23385,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1730.403, y: -17.70193, z: -729.878}
-  RightLine: {x: 1742.597, y: -17.81687, z: -727.522}
+  LeftLine: {x: 1730.4028, y: -17.701927, z: -729.878}
+  RightLine: {x: 1742.5972, y: -17.816872, z: -727.52203}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952912
@@ -23429,8 +23450,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2210.033, y: 18.72185, z: -37.60188}
-  RightLine: {x: 2197.648, y: 18.66652, z: -36.66581}
+  LeftLine: {x: 2210.0334, y: 18.721857, z: -37.60188}
+  RightLine: {x: 2197.6487, y: 18.666521, z: -36.665802}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952916
@@ -23450,8 +23471,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1999.791, y: 15.95748, z: -218.1233}
-  RightLine: {x: 2012.209, y: 15.95647, z: -218.3115}
+  LeftLine: {x: 1999.7908, y: 15.957485, z: -218.1233}
+  RightLine: {x: 2012.2092, y: 15.956474, z: -218.31151}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952917
@@ -23471,8 +23492,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2158.882, y: 16.91997, z: 124.7072}
-  RightLine: {x: 2157.817, y: 13.34327, z: 112.3329}
+  LeftLine: {x: 2158.882, y: 16.919966, z: 124.707184}
+  RightLine: {x: 2157.8167, y: 13.343266, z: 112.33294}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952918
@@ -23492,8 +23513,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1995.016, y: 9.19174, z: -121.8653}
-  RightLine: {x: 2002.683, y: 11.02654, z: -112.0944}
+  LeftLine: {x: 1995.0162, y: 9.19174, z: -121.865326}
+  RightLine: {x: 2002.6833, y: 11.026537, z: -112.09436}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952919
@@ -23513,8 +23534,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2210.585, y: 18.02197, z: -314.6488}
-  RightLine: {x: 2208.994, y: 16.76612, z: -302.3312}
+  LeftLine: {x: 2210.5854, y: 18.021973, z: -314.64883}
+  RightLine: {x: 2208.9944, y: 16.766129, z: -302.33118}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952920
@@ -23624,8 +23645,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2815.71, y: 25.76533, z: -391.2913}
-  RightLine: {x: 2803.29, y: 25.77559, z: -391.3087}
+  LeftLine: {x: 2815.71, y: 25.76533, z: -391.29126}
+  RightLine: {x: 2803.29, y: 25.77559, z: -391.30872}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952923
@@ -23729,8 +23750,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1793.109, y: -12.36968, z: -112.774}
-  RightLine: {x: 1802.524, y: -12.26285, z: -104.6741}
+  LeftLine: {x: 1793.1094, y: -12.369682, z: -112.77396}
+  RightLine: {x: 1802.5247, y: -12.262857, z: -104.67404}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952927
@@ -23832,8 +23853,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2748.005, y: 19.58239, z: -186.6525}
-  RightLine: {x: 2740.023, y: 16.60915, z: -196.1684}
+  LeftLine: {x: 2748.0044, y: 19.582388, z: -186.65253}
+  RightLine: {x: 2740.0227, y: 16.609144, z: -196.16843}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952933
@@ -24034,8 +24055,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2219.561, y: 20.73263, z: 19.51211}
-  RightLine: {x: 2207.301, y: 20.53497, z: 21.50032}
+  LeftLine: {x: 2219.5608, y: 20.73263, z: 19.512115}
+  RightLine: {x: 2207.301, y: 20.53497, z: 21.500319}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952941
@@ -24069,7 +24090,7 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1969.488, y: -4.502446, z: 99.68919}
+  LeftLine: {x: 1969.4878, y: -4.5024457, z: 99.68919}
   RightLine: {x: 1968.472, y: -5.45428, z: 87.31082}
   ShowIconGizmo: 0
   ShowLines: 1
@@ -24120,8 +24141,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2331.375, y: 35.30715, z: -106.7183}
-  RightLine: {x: 2333.684, y: 32.60367, z: -118.9218}
+  LeftLine: {x: 2331.375, y: 35.307156, z: -106.71833}
+  RightLine: {x: 2333.6843, y: 32.603676, z: -118.921814}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952945
@@ -24141,8 +24162,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2400.275, y: 10.46195, z: 118.4655}
-  RightLine: {x: 2405.794, y: 9.193138, z: 107.3387}
+  LeftLine: {x: 2400.2756, y: 10.461947, z: 118.46555}
+  RightLine: {x: 2405.794, y: 9.193138, z: 107.33876}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952946
@@ -24219,8 +24240,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2344.161, y: 6.981866, z: -299.4222}
-  RightLine: {x: 2343.539, y: 3.96737, z: -287.0178}
+  LeftLine: {x: 2344.1606, y: 6.981866, z: -299.42224}
+  RightLine: {x: 2343.5386, y: 3.9673698, z: -287.01782}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952950
@@ -24555,8 +24576,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2414.39, y: 13.50339, z: -490.9409}
-  RightLine: {x: 2426.81, y: 13.50447, z: -490.8591}
+  LeftLine: {x: 2414.3901, y: 13.503388, z: -490.94092}
+  RightLine: {x: 2426.81, y: 13.504472, z: -490.85907}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952962
@@ -24676,8 +24697,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2300.473, y: 11.61844, z: -301.6229}
-  RightLine: {x: 2298.946, y: 8.422557, z: -289.2972}
+  LeftLine: {x: 2300.4731, y: 11.618439, z: -301.62292}
+  RightLine: {x: 2298.9458, y: 8.422556, z: -289.29718}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952966
@@ -24896,8 +24917,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2807.106, y: 25.07955, z: -642.0052}
-  RightLine: {x: 2797.316, y: 22.39511, z: -634.3625}
+  LeftLine: {x: 2807.1055, y: 25.079546, z: -642.00525}
+  RightLine: {x: 2797.3154, y: 22.395107, z: -634.36255}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952973
@@ -24966,8 +24987,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2694.991, y: -0.4298088, z: -724.8616}
-  RightLine: {x: 2683.009, y: -0.3073771, z: -728.1293}
+  LeftLine: {x: 2694.9912, y: -0.42980874, z: -724.8616}
+  RightLine: {x: 2683.0088, y: -0.30737704, z: -728.1293}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952976
@@ -25068,7 +25089,7 @@ MonoBehaviour:
   LeftWide: 6.21
   RightWide: 6.21
   LeftLine: {x: 2075.636, y: 8.458364, z: -716.3693}
-  RightLine: {x: 2073.923, y: 5.777552, z: -728.6706}
+  RightLine: {x: 2073.923, y: 5.7775517, z: -728.6706}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952981
@@ -25118,8 +25139,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2625.211, y: 27.93219, z: 63.62547}
-  RightLine: {x: 2612.928, y: 26.77909, z: 65.46897}
+  LeftLine: {x: 2625.2104, y: 27.932198, z: 63.625465}
+  RightLine: {x: 2612.9277, y: 26.779097, z: 65.46897}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952983
@@ -25139,8 +25160,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2593.487, y: 30.93096, z: 122.6742}
-  RightLine: {x: 2585.593, y: 30.38486, z: 113.0859}
+  LeftLine: {x: 2593.487, y: 30.930956, z: 122.674164}
+  RightLine: {x: 2585.593, y: 30.384863, z: 113.08586}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952984
@@ -25174,8 +25195,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2426.843, y: 13.02643, z: 131.3781}
-  RightLine: {x: 2429.206, y: 10.12367, z: 119.1851}
+  LeftLine: {x: 2426.8428, y: 13.026429, z: 131.37814}
+  RightLine: {x: 2429.206, y: 10.123668, z: 119.18509}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952986
@@ -25195,8 +25216,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2009.41, y: 1.718732, z: -674.9622}
-  RightLine: {x: 1998.886, y: 1.640147, z: -681.5593}
+  LeftLine: {x: 2009.4095, y: 1.7187314, z: -674.9621}
+  RightLine: {x: 1998.8864, y: 1.6401465, z: -681.55927}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952987
@@ -25216,8 +25237,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1826.441, y: -11.10542, z: -124.2071}
-  RightLine: {x: 1828.383, y: -9.543092, z: -111.9398}
+  LeftLine: {x: 1826.441, y: -11.105412, z: -124.20713}
+  RightLine: {x: 1828.3826, y: -9.543087, z: -111.93982}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952988
@@ -25388,8 +25409,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2375.331, y: 13.11123, z: 70.17382}
-  RightLine: {x: 2387.484, y: 13.22113, z: 67.61465}
+  LeftLine: {x: 2375.3303, y: 13.111232, z: 70.17382}
+  RightLine: {x: 2387.4836, y: 13.221127, z: 67.614655}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952993
@@ -25409,8 +25430,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2209.516, y: 19.92223, z: -81.7317}
-  RightLine: {x: 2201.583, y: 16.96867, z: -91.28751}
+  LeftLine: {x: 2209.5164, y: 19.922226, z: -81.7317}
+  RightLine: {x: 2201.5828, y: 16.96866, z: -91.28751}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156952994
@@ -25728,8 +25749,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2000.393, y: 14.34186, z: -178.7906}
-  RightLine: {x: 2012.807, y: 14.34512, z: -178.4277}
+  LeftLine: {x: 2000.3926, y: 14.341859, z: -178.79056}
+  RightLine: {x: 2012.8074, y: 14.34512, z: -178.42764}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953009
@@ -26580,8 +26601,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1775.713, y: -2.38061, z: 90.50196}
-  RightLine: {x: 1786.067, y: -2.61502, z: 83.64305}
+  LeftLine: {x: 1775.7128, y: -2.38061, z: 90.50196}
+  RightLine: {x: 1786.0673, y: -2.6150198, z: 83.64305}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953035
@@ -26601,8 +26622,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2391.81, y: 34.51539, z: -64.20481}
-  RightLine: {x: 2404.188, y: 34.54633, z: -63.17987}
+  LeftLine: {x: 2391.8103, y: 34.51539, z: -64.20481}
+  RightLine: {x: 2404.1877, y: 34.54633, z: -63.17987}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953036
@@ -26636,8 +26657,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2788.293, y: 17.0921, z: -664.5047}
-  RightLine: {x: 2784.555, y: 23.40712, z: -652.6605}
+  LeftLine: {x: 2788.2932, y: 17.092102, z: -664.5047}
+  RightLine: {x: 2784.5552, y: 23.407125, z: -652.66046}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953038
@@ -26657,8 +26678,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2035.929, y: -0.3787328, z: -914.7029}
-  RightLine: {x: 2036.851, y: -0.1654248, z: -902.3171}
+  LeftLine: {x: 2035.9291, y: -0.3787328, z: -914.7029}
+  RightLine: {x: 2036.851, y: -0.16542481, z: -902.31714}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953039
@@ -26899,8 +26920,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2002.183, y: 17.29523, z: -257.4465}
-  RightLine: {x: 2014.579, y: 17.30221, z: -256.6864}
+  LeftLine: {x: 2002.1826, y: 17.295227, z: -257.44647}
+  RightLine: {x: 2014.5793, y: 17.302212, z: -256.68634}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953049
@@ -27016,8 +27037,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2411.351, y: 6.28618, z: -629.2064}
-  RightLine: {x: 2423.729, y: 6.313166, z: -630.2137}
+  LeftLine: {x: 2411.3506, y: 6.28618, z: -629.20636}
+  RightLine: {x: 2423.7295, y: 6.313166, z: -630.2137}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953054
@@ -27051,8 +27072,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1763.854, y: -11.24062, z: -52.14737}
-  RightLine: {x: 1776.202, y: -11.25277, z: -50.81324}
+  LeftLine: {x: 1763.8539, y: -11.240614, z: -52.147366}
+  RightLine: {x: 1776.202, y: -11.252766, z: -50.813236}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953056
@@ -27112,8 +27133,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1852.55, y: -2.683752, z: 124.0039}
-  RightLine: {x: 1850.257, y: -1.900598, z: 111.7973}
+  LeftLine: {x: 1852.5493, y: -2.6837513, z: 124.00388}
+  RightLine: {x: 1850.2566, y: -1.9005986, z: 111.797325}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953059
@@ -27225,8 +27246,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1943.558, y: -4.958591, z: 104.8714}
-  RightLine: {x: 1941.142, y: -4.92373, z: 92.68857}
+  LeftLine: {x: 1943.5577, y: -4.9585905, z: 104.87143}
+  RightLine: {x: 1941.1422, y: -4.92373, z: 92.68857}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953065
@@ -27276,8 +27297,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1783.724, y: -13.87744, z: -825.8267}
-  RightLine: {x: 1794.101, y: -13.26224, z: -819.0015}
+  LeftLine: {x: 1783.7238, y: -13.877444, z: -825.8267}
+  RightLine: {x: 1794.1002, y: -13.262237, z: -819.00146}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953067
@@ -27516,8 +27537,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2623.217, y: 29.66544, z: 85.47577}
-  RightLine: {x: 2610.853, y: 30.03789, z: 84.30263}
+  LeftLine: {x: 2623.2173, y: 29.665438, z: 85.47577}
+  RightLine: {x: 2610.8525, y: 30.037891, z: 84.30263}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953074
@@ -27694,8 +27715,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2387.18, y: 38.15234, z: -87.63476}
-  RightLine: {x: 2399.385, y: 38.23412, z: -89.93777}
+  LeftLine: {x: 2387.1797, y: 38.15234, z: -87.63476}
+  RightLine: {x: 2399.3843, y: 38.23412, z: -89.93777}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953081
@@ -27729,8 +27750,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2219.065, y: 21.56131, z: 95.50242}
-  RightLine: {x: 2207.182, y: 21.39555, z: 91.88724}
+  LeftLine: {x: 2219.0652, y: 21.561312, z: 95.50241}
+  RightLine: {x: 2207.1829, y: 21.395548, z: 91.88723}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953083
@@ -28048,8 +28069,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2486.405, y: 20.49428, z: 140.14}
-  RightLine: {x: 2486.413, y: 16.44156, z: 127.72}
+  LeftLine: {x: 2486.4048, y: 20.494286, z: 140.14001}
+  RightLine: {x: 2486.4133, y: 16.441563, z: 127.71998}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953096
@@ -28112,8 +28133,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2383.87, y: 23.99401, z: -2.542381}
-  RightLine: {x: 2396.05, y: 24.12364, z: -0.1176105}
+  LeftLine: {x: 2383.8696, y: 23.994019, z: -2.5423808}
+  RightLine: {x: 2396.0503, y: 24.123642, z: -0.11761054}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953099
@@ -28133,8 +28154,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1901.999, y: -2.844338, z: -104.2576}
-  RightLine: {x: 1904.309, y: -2.844338, z: -116.4609}
+  LeftLine: {x: 1901.999, y: -2.844338, z: -104.25756}
+  RightLine: {x: 1904.3091, y: -2.844338, z: -116.46084}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953100
@@ -28224,8 +28245,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2413.997, y: 11.23658, z: -430.4973}
-  RightLine: {x: 2426.404, y: 11.25536, z: -429.9354}
+  LeftLine: {x: 2413.9963, y: 11.23658, z: -430.49725}
+  RightLine: {x: 2426.4036, y: 11.25536, z: -429.93536}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953105
@@ -28289,8 +28310,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2113.714, y: 12.38287, z: -721.7201}
-  RightLine: {x: 2113.005, y: 9.238048, z: -734.1198}
+  LeftLine: {x: 2113.714, y: 12.382868, z: -721.7201}
+  RightLine: {x: 2113.005, y: 9.238047, z: -734.1198}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953108
@@ -28310,8 +28331,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1958.559, y: 2.100589, z: -108.6283}
-  RightLine: {x: 1957.292, y: 5.148909, z: -96.27313}
+  LeftLine: {x: 1958.559, y: 2.1005888, z: -108.62836}
+  RightLine: {x: 1957.2919, y: 5.1489086, z: -96.27316}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953109
@@ -28405,8 +28426,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2394.715, y: 1.390425, z: -320.8979}
-  RightLine: {x: 2402.31, y: 1.417861, z: -311.0708}
+  LeftLine: {x: 2394.7153, y: 1.3904251, z: -320.89795}
+  RightLine: {x: 2402.3105, y: 1.4178609, z: -311.07086}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953112
@@ -28426,8 +28447,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1778.105, y: -12.61688, z: -94.87486}
-  RightLine: {x: 1789.554, y: -12.61705, z: -90.06153}
+  LeftLine: {x: 1778.1042, y: -12.616886, z: -94.874855}
+  RightLine: {x: 1789.5537, y: -12.617054, z: -90.06153}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953113
@@ -28810,8 +28831,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1754.591, y: -17.4329, z: -781.4634}
-  RightLine: {x: 1765.818, y: -17.39834, z: -776.1525}
+  LeftLine: {x: 1754.5913, y: -17.432898, z: -781.46344}
+  RightLine: {x: 1765.8186, y: -17.398344, z: -776.1525}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953126
@@ -28861,8 +28882,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2208.72, y: 21.10099, z: 110.8014}
-  RightLine: {x: 2198.559, y: 20.00637, z: 103.6588}
+  LeftLine: {x: 2208.7202, y: 21.100985, z: 110.801414}
+  RightLine: {x: 2198.5593, y: 20.006372, z: 103.6588}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953128
@@ -29035,8 +29056,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1844.721, y: -9.776567, z: -124.7675}
-  RightLine: {x: 1845.076, y: -7.82282, z: -112.3525}
+  LeftLine: {x: 1844.7203, y: -9.776567, z: -124.767456}
+  RightLine: {x: 1845.0751, y: -7.82282, z: -112.35252}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953133
@@ -29204,8 +29225,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2715.502, y: 7.547769, z: -685.6144}
-  RightLine: {x: 2708.001, y: 3.2323, z: -675.715}
+  LeftLine: {x: 2715.5022, y: 7.547768, z: -685.6144}
+  RightLine: {x: 2708.0015, y: 3.2322998, z: -675.71497}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953139
@@ -29298,8 +29319,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2381.315, y: 10.49215, z: 95.45918}
-  RightLine: {x: 2391.054, y: 10.75253, z: 87.7515}
+  LeftLine: {x: 2381.3154, y: 10.492149, z: 95.45918}
+  RightLine: {x: 2391.0547, y: 10.752531, z: 87.7515}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953142
@@ -29360,8 +29381,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2584.512, y: 0.9144865, z: -913.61}
-  RightLine: {x: 2584.487, y: 0.9856272, z: -901.1901}
+  LeftLine: {x: 2584.5127, y: 0.9144865, z: -913.61005}
+  RightLine: {x: 2584.4873, y: 0.9856273, z: -901.1901}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953146
@@ -29381,8 +29402,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2207.934, y: 18.08882, z: -63.20275}
-  RightLine: {x: 2195.687, y: 17.94817, z: -65.26489}
+  LeftLine: {x: 2207.9338, y: 18.088818, z: -63.202755}
+  RightLine: {x: 2195.6863, y: 17.948162, z: -65.2649}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953147
@@ -29577,8 +29598,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1848.957, y: 20.89502, z: -462.0229}
-  RightLine: {x: 1850.248, y: 20.95973, z: -474.3756}
+  LeftLine: {x: 1848.9574, y: 20.895018, z: -462.02286}
+  RightLine: {x: 1850.2487, y: 20.959723, z: -474.37552}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953155
@@ -29612,8 +29633,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1805.247, y: -1.350673, z: 119.5439}
-  RightLine: {x: 1808.354, y: -1.344063, z: 107.5186}
+  LeftLine: {x: 1805.2478, y: -1.3506731, z: 119.543816}
+  RightLine: {x: 1808.3542, y: -1.3440629, z: 107.51858}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953157
@@ -29661,8 +29682,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2716.032, y: -0.117444, z: -853.2122}
-  RightLine: {x: 2705.165, y: 0.01547626, z: -847.1988}
+  LeftLine: {x: 2716.0327, y: -0.11744398, z: -853.2122}
+  RightLine: {x: 2705.1655, y: 0.015476282, z: -847.1988}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953160
@@ -29973,8 +29994,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2376.048, y: 16.54655, z: 44.74051}
-  RightLine: {x: 2388.46, y: 16.54825, z: 45.18019}
+  LeftLine: {x: 2376.0479, y: 16.54655, z: 44.74051}
+  RightLine: {x: 2388.46, y: 16.548248, z: 45.18019}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953169
@@ -30022,8 +30043,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2697.366, y: 0.5317144, z: -884.8099}
-  RightLine: {x: 2691.631, y: 0.2865781, z: -873.7935}
+  LeftLine: {x: 2697.3657, y: 0.5317143, z: -884.80994}
+  RightLine: {x: 2691.6304, y: 0.28657806, z: -873.79346}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953172
@@ -30043,8 +30064,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2154.163, y: 16.06417, z: -724.0912}
-  RightLine: {x: 2153.964, y: 14.98843, z: -736.5096}
+  LeftLine: {x: 2154.1633, y: 16.064167, z: -724.0912}
+  RightLine: {x: 2153.9646, y: 14.988433, z: -736.50964}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953173
@@ -30142,8 +30163,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2009.51, y: 4.052464, z: -637.9563}
-  RightLine: {x: 1997.093, y: 4.873132, z: -638.2124}
+  LeftLine: {x: 2009.5106, y: 4.0524645, z: -637.9563}
+  RightLine: {x: 1997.0934, y: 4.873132, z: -638.2124}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953177
@@ -30163,8 +30184,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2006.376, y: 16.13625, z: -487.9836}
-  RightLine: {x: 1995.192, y: 17.75067, z: -493.3841}
+  LeftLine: {x: 2006.3761, y: 16.13625, z: -487.9836}
+  RightLine: {x: 1995.1918, y: 17.750666, z: -493.38416}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953178
@@ -30198,8 +30219,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1917.382, y: -4.658213, z: 111.805}
-  RightLine: {x: 1914.208, y: -4.177354, z: 99.7973}
+  LeftLine: {x: 1917.3818, y: -4.658212, z: 111.80495}
+  RightLine: {x: 1914.2081, y: -4.1773534, z: 99.797264}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953180
@@ -30219,8 +30240,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2010.134, y: 18.17679, z: -286.2658}
-  RightLine: {x: 2022.091, y: 18.23885, z: -282.9051}
+  LeftLine: {x: 2010.1348, y: 18.17679, z: -286.26575}
+  RightLine: {x: 2022.0913, y: 18.238852, z: -282.90503}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953181
@@ -30240,8 +30261,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1761.389, y: -10.01618, z: -29.30084}
-  RightLine: {x: 1773.766, y: -10.02381, z: -28.27296}
+  LeftLine: {x: 1761.3893, y: -10.016189, z: -29.300837}
+  RightLine: {x: 1773.7667, y: -10.023812, z: -28.272963}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953182
@@ -30324,7 +30345,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1791205147002446228}
   m_Direction: 0
   m_Value: 1.0000001
-  m_Size: 0.2720863
+  m_Size: 0.13604304
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -30390,8 +30411,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1933.697, y: -0.8948902, z: -111.1479}
-  RightLine: {x: 1931.487, y: 1.92347, z: -98.92617}
+  LeftLine: {x: 1933.6976, y: -0.89489055, z: -111.147865}
+  RightLine: {x: 1931.4874, y: 1.9234707, z: -98.926125}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953187
@@ -30411,8 +30432,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2251.523, y: 25.69064, z: -104.1065}
-  RightLine: {x: 2250.375, y: 21.66934, z: -116.4733}
+  LeftLine: {x: 2251.5234, y: 25.690641, z: -104.1065}
+  RightLine: {x: 2250.3748, y: 21.66934, z: -116.473335}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953188
@@ -30432,8 +30453,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2403.34, y: 1.997782, z: -663.4991}
-  RightLine: {x: 2415.44, y: 2.022159, z: -666.301}
+  LeftLine: {x: 2403.34, y: 1.9977815, z: -663.4991}
+  RightLine: {x: 2415.4397, y: 2.0221584, z: -666.30096}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953189
@@ -30501,8 +30522,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1770.88, y: -12.58048, z: -77.56448}
-  RightLine: {x: 1782.84, y: -12.65119, z: -74.21552}
+  LeftLine: {x: 1770.88, y: -12.580487, z: -77.56448}
+  RightLine: {x: 1782.84, y: -12.651193, z: -74.215515}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953192
@@ -30565,8 +30586,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1725.682, y: -8.498729, z: -647.4684}
-  RightLine: {x: 1737.958, y: -8.409841, z: -649.3516}
+  LeftLine: {x: 1725.6818, y: -8.498729, z: -647.4684}
+  RightLine: {x: 1737.9581, y: -8.409841, z: -649.35156}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953196
@@ -30586,8 +30607,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1824.738, y: -1.750549, z: 124.3597}
-  RightLine: {x: 1824.622, y: -0.9570366, z: 111.9403}
+  LeftLine: {x: 1824.7377, y: -1.7505492, z: 124.35973}
+  RightLine: {x: 1824.6223, y: -0.95703685, z: 111.94027}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953197
@@ -30607,8 +30628,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1883.228, y: -6.387077, z: -119.9672}
-  RightLine: {x: 1880.871, y: -4.074006, z: -107.7729}
+  LeftLine: {x: 1883.228, y: -6.3870773, z: -119.96723}
+  RightLine: {x: 1880.8713, y: -4.074007, z: -107.77292}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953198
@@ -30871,8 +30892,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2241.261, y: 14.65957, z: -722.5114}
-  RightLine: {x: 2241.472, y: 16.97187, z: -734.9296}
+  LeftLine: {x: 2241.261, y: 14.659567, z: -722.5114}
+  RightLine: {x: 2241.4722, y: 16.971869, z: -734.9297}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953207
@@ -31273,8 +31294,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2079.311, y: 5.866899, z: 109.9655}
-  RightLine: {x: 2082.197, y: 2.9582, z: 97.88553}
+  LeftLine: {x: 2079.311, y: 5.8668995, z: 109.965454}
+  RightLine: {x: 2082.1975, y: 2.9582, z: 97.885506}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953223
@@ -31352,8 +31373,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2379.493, y: 20.38829, z: 19.55725}
-  RightLine: {x: 2391.796, y: 20.44498, z: 21.26021}
+  LeftLine: {x: 2379.4937, y: 20.388296, z: 19.55725}
+  RightLine: {x: 2391.7964, y: 20.444983, z: 21.260212}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953227
@@ -32385,8 +32406,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2608.724, y: 7.38408, z: -64.6542}
-  RightLine: {x: 2596.732, y: 8.191499, z: -67.88694}
+  LeftLine: {x: 2608.7239, y: 7.38408, z: -64.654205}
+  RightLine: {x: 2596.732, y: 8.191499, z: -67.88695}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953233
@@ -32406,8 +32427,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1999.573, y: 12.44698, z: -146.0052}
-  RightLine: {x: 2011.635, y: 12.55581, z: -143.0453}
+  LeftLine: {x: 1999.5729, y: 12.446975, z: -146.00517}
+  RightLine: {x: 2011.6351, y: 12.555806, z: -143.04524}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953234
@@ -33104,8 +33125,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2805.937, y: 24.7124, z: -257.0384}
-  RightLine: {x: 2793.67, y: 24.45969, z: -258.9777}
+  LeftLine: {x: 2805.9368, y: 24.712406, z: -257.0384}
+  RightLine: {x: 2793.6692, y: 24.459692, z: -258.97775}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953256
@@ -33125,8 +33146,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2023.851, y: 13.94356, z: -526.3497}
-  RightLine: {x: 2011.534, y: 14.33677, z: -524.7535}
+  LeftLine: {x: 2023.8514, y: 13.943563, z: -526.3496}
+  RightLine: {x: 2011.5345, y: 14.336769, z: -524.7534}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953257
@@ -33146,8 +33167,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2386.978, y: 1.345038, z: -688.2383}
-  RightLine: {x: 2397.421, y: 1.267177, z: -694.9617}
+  LeftLine: {x: 2386.9775, y: 1.3450387, z: -688.2383}
+  RightLine: {x: 2397.4204, y: 1.2671773, z: -694.9617}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953258
@@ -33318,8 +33339,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2614.872, y: 30.52934, z: 104.2461}
-  RightLine: {x: 2603.598, y: 31.70499, z: 99.03662}
+  LeftLine: {x: 2614.8723, y: 30.529337, z: 104.24612}
+  RightLine: {x: 2603.5977, y: 31.704992, z: 99.03659}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953265
@@ -33415,8 +33436,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2750.146, y: 9.575712, z: -676.3668}
-  RightLine: {x: 2746.765, y: 16.24544, z: -664.4159}
+  LeftLine: {x: 2750.1465, y: 9.575715, z: -676.36676}
+  RightLine: {x: 2746.7651, y: 16.245441, z: -664.41583}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953269
@@ -33496,8 +33517,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2697.898, y: 1.153178, z: -696.4307}
-  RightLine: {x: 2685.526, y: 1.604313, z: -695.3333}
+  LeftLine: {x: 2697.8977, y: 1.1531782, z: -696.4307}
+  RightLine: {x: 2685.5261, y: 1.6043135, z: -695.3333}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953271
@@ -33599,8 +33620,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2712.294, y: -0.6046559, z: -788.7455}
-  RightLine: {x: 2699.907, y: -0.7857839, z: -789.6587}
+  LeftLine: {x: 2712.2942, y: -0.60465586, z: -788.7455}
+  RightLine: {x: 2699.908, y: -0.7857839, z: -789.6587}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953275
@@ -33620,8 +33641,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1898.166, y: 20.42394, z: -457.0378}
-  RightLine: {x: 1896.628, y: 21.13354, z: -469.3622}
+  LeftLine: {x: 1898.166, y: 20.423937, z: -457.0378}
+  RightLine: {x: 1896.6279, y: 21.133541, z: -469.3622}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953276
@@ -33641,8 +33662,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1724.193, y: -15.6366, z: -696.9186}
-  RightLine: {x: 1736.607, y: -15.61259, z: -697.2813}
+  LeftLine: {x: 1724.1926, y: -15.636606, z: -696.91864}
+  RightLine: {x: 1736.6074, y: -15.612595, z: -697.2813}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953277
@@ -33692,8 +33713,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1865.889, y: -7.955781, z: -123.2821}
-  RightLine: {x: 1865.01, y: -5.697615, z: -110.8933}
+  LeftLine: {x: 1865.8892, y: -7.955781, z: -123.28214}
+  RightLine: {x: 1865.01, y: -5.697614, z: -110.8933}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953279
@@ -33887,8 +33908,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2378.122, y: 38.39146, z: -94.16372}
-  RightLine: {x: 2386.467, y: 38.66013, z: -103.3629}
+  LeftLine: {x: 2378.1216, y: 38.39146, z: -94.16373}
+  RightLine: {x: 2386.4663, y: 38.660133, z: -103.36291}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953285
@@ -33972,8 +33993,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2082.879, y: 19.63632, z: -324.6254}
-  RightLine: {x: 2084.924, y: 19.92703, z: -312.3749}
+  LeftLine: {x: 2082.8784, y: 19.636326, z: -324.62546}
+  RightLine: {x: 2084.923, y: 19.927032, z: -312.37497}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953288
@@ -34023,8 +34044,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2662.132, y: 10.1308, z: -133.229}
-  RightLine: {x: 2655.728, y: 8.054818, z: -143.8708}
+  LeftLine: {x: 2662.1316, y: 10.1307955, z: -133.22896}
+  RightLine: {x: 2655.7278, y: 8.054818, z: -143.8708}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953290
@@ -34134,8 +34155,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2812.507, y: 25.47745, z: -299.0852}
-  RightLine: {x: 2800.094, y: 25.45456, z: -299.5183}
+  LeftLine: {x: 2812.5073, y: 25.477455, z: -299.08524}
+  RightLine: {x: 2800.0947, y: 25.454563, z: -299.51834}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953294
@@ -34185,8 +34206,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1774.946, y: 15.80189, z: -509.1664}
-  RightLine: {x: 1783.725, y: 14.78169, z: -517.9513}
+  LeftLine: {x: 1774.9462, y: 15.801891, z: -509.1664}
+  RightLine: {x: 1783.7258, y: 14.781683, z: -517.9513}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953296
@@ -34432,8 +34453,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1981.663, y: 5.313487, z: -109.9233}
-  RightLine: {x: 1982.307, y: 8.574744, z: -97.52003}
+  LeftLine: {x: 1981.6624, y: 5.3134875, z: -109.923325}
+  RightLine: {x: 1982.3063, y: 8.574744, z: -97.52001}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953305
@@ -34874,7 +34895,7 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2214.67, y: 19.81367, z: -10.8122}
+  LeftLine: {x: 2214.6702, y: 19.813667, z: -10.812201}
   RightLine: {x: 2202.432, y: 19.58433, z: -8.694348}
   ShowIconGizmo: 0
   ShowLines: 1
@@ -34895,8 +34916,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2223.612, y: 21.74071, z: 79.61567}
-  RightLine: {x: 2211.192, y: 21.72705, z: 79.5996}
+  LeftLine: {x: 2223.612, y: 21.740711, z: 79.61568}
+  RightLine: {x: 2211.1921, y: 21.727047, z: 79.59961}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953322
@@ -35537,8 +35558,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2198.773, y: 16.86452, z: -724.8492}
-  RightLine: {x: 2199.449, y: 17.78669, z: -737.2507}
+  LeftLine: {x: 2198.773, y: 16.864513, z: -724.84924}
+  RightLine: {x: 2199.4492, y: 17.786684, z: -737.25073}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953328
@@ -35558,8 +35579,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2133.517, y: 13.48052, z: 121.3953}
-  RightLine: {x: 2135.217, y: 10.15854, z: 109.092}
+  LeftLine: {x: 2133.5176, y: 13.480528, z: 121.39522}
+  RightLine: {x: 2135.217, y: 10.158545, z: 109.092}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953329
@@ -35674,8 +35695,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2051.35, y: 2.252184, z: 103.6831}
-  RightLine: {x: 2054.074, y: -0.4172966, z: 91.56555}
+  LeftLine: {x: 2051.3496, y: 2.2521842, z: 103.683136}
+  RightLine: {x: 2054.0735, y: -0.41729656, z: 91.56556}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953334
@@ -35709,8 +35730,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1759.988, y: -9.012806, z: -12.15477}
-  RightLine: {x: 1772.408, y: -9.012794, z: -12.19009}
+  LeftLine: {x: 1759.988, y: -9.012806, z: -12.154769}
+  RightLine: {x: 1772.408, y: -9.0127945, z: -12.190091}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953336
@@ -35801,8 +35822,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2279.548, y: 11.16982, z: -721.8609}
-  RightLine: {x: 2281.372, y: 13.80519, z: -734.1464}
+  LeftLine: {x: 2279.5479, y: 11.169819, z: -721.8609}
+  RightLine: {x: 2281.371, y: 13.805196, z: -734.1464}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953340
@@ -36086,8 +36107,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1767.547, y: -3.65427, z: 69.91522}
-  RightLine: {x: 1779.12, y: -3.787717, z: 65.40884}
+  LeftLine: {x: 1767.5461, y: -3.654271, z: 69.91522}
+  RightLine: {x: 1779.1199, y: -3.787717, z: 65.408844}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953349
@@ -36134,8 +36155,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2027.375, y: 18.77959, z: -307.4464}
-  RightLine: {x: 2036.841, y: 19.04467, z: -299.4057}
+  LeftLine: {x: 2027.3751, y: 18.77959, z: -307.44638}
+  RightLine: {x: 2036.841, y: 19.04467, z: -299.40576}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953352
@@ -36197,8 +36218,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2414.47, y: 13.65511, z: -556.5776}
-  RightLine: {x: 2426.89, y: 13.65512, z: -556.5624}
+  LeftLine: {x: 2414.47, y: 13.655104, z: -556.5776}
+  RightLine: {x: 2426.89, y: 13.655117, z: -556.56244}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953356
@@ -36344,8 +36365,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2226.561, y: 22.54418, z: -96.62935}
-  RightLine: {x: 2223.077, y: 19.73249, z: -108.5507}
+  LeftLine: {x: 2226.5608, y: 22.54418, z: -96.62932}
+  RightLine: {x: 2223.0764, y: 19.73249, z: -108.55063}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953361
@@ -36477,8 +36498,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2651.403, y: 0.8493133, z: -908.19}
-  RightLine: {x: 2650.396, y: 0.7830718, z: -895.8109}
+  LeftLine: {x: 2651.4023, y: 0.84931326, z: -908.19}
+  RightLine: {x: 2650.3955, y: 0.78307176, z: -895.81085}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953365
@@ -36676,8 +36697,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1817.407, y: -9.497807, z: -859.6797}
-  RightLine: {x: 1826.193, y: -8.221713, z: -850.9001}
+  LeftLine: {x: 1817.4075, y: -9.497807, z: -859.6797}
+  RightLine: {x: 1826.1925, y: -8.221713, z: -850.9001}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953371
@@ -36697,8 +36718,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2022.054, y: 3.091758, z: -696.4525}
-  RightLine: {x: 2015.764, y: 0.4259806, z: -707.1616}
+  LeftLine: {x: 2022.0541, y: 3.091757, z: -696.4526}
+  RightLine: {x: 2015.7633, y: 0.42598048, z: -707.1616}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953372
@@ -36840,8 +36861,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2005.161, y: -2.48981, z: 96.59856}
-  RightLine: {x: 2007.044, y: -4.639259, z: 84.32215}
+  LeftLine: {x: 2005.1611, y: -2.4898098, z: 96.598564}
+  RightLine: {x: 2007.0443, y: -4.6392593, z: 84.32215}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953379
@@ -37332,8 +37353,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 1807.282, y: 19.03128, z: -477.6997}
-  RightLine: {x: 1811.718, y: 18.22738, z: -489.3003}
+  LeftLine: {x: 1807.2816, y: 19.031279, z: -477.69974}
+  RightLine: {x: 1811.7183, y: 18.227379, z: -489.3003}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!114 &1791205145156953395
@@ -37437,8 +37458,8 @@ MonoBehaviour:
   SeperatedWiders: 0
   LeftWide: 6.21
   RightWide: 6.21
-  LeftLine: {x: 2357.31, y: 37.60452, z: -102.0197}
-  RightLine: {x: 2361.924, y: 36.2066, z: -113.551}
+  LeftLine: {x: 2357.31, y: 37.60452, z: -102.01965}
+  RightLine: {x: 2361.9236, y: 36.206596, z: -113.55103}
   ShowIconGizmo: 0
   ShowLines: 1
 --- !u!124 &1791205145324724413

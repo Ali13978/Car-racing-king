@@ -25,6 +25,7 @@ public class MainMenuScript : MonoBehaviourPunCallbacks
     public static MainMenuScript instance;
     private void Awake()
     {
+        PlayerPrefs.SetInt("Cash", 10000000);
         instance = this;
     }
 
@@ -301,14 +302,22 @@ public class MainMenuScript : MonoBehaviourPunCallbacks
             if (PhotonNetwork.IsMasterClient)
             {
                 PhotonNetwork.CurrentRoom.IsOpen = false;
+                photonView.RPC("EnableLoadingScreen", RpcTarget.All);
                 PhotonNetwork.LoadLevel(selectedLevel);
             }
         });
 
         PhotonNetwork.LocalPlayer.NickName = PlayerPrefs.GetString("PlayerName");
     }
-    
-	private void Update()
+
+    [PunRPC]
+    private void EnableLoadingScreen()
+    {
+        lobbyPannel.SetActive(false);
+        LoadingScreenCanvasSetActive(true);
+    }
+
+    private void Update()
 	{
 		cashPlaceHolder.text = PlayerPrefs.GetInt("Cash").ToString();
 	}
