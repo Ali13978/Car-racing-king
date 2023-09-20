@@ -200,6 +200,12 @@ public class MainMenuScript : MonoBehaviourPunCallbacks
 
     private void Start()
 	{
+        if (PhotonNetwork.IsConnected)
+            if (PhotonNetwork.CurrentRoom != null)
+            {
+                Debug.Log("Leaving room");
+                PhotonNetworkManager.Instance.LeaveRoom();
+            }
         Time.timeScale = 1f;
 
         currentState = MainMenuState.PlayScreen;

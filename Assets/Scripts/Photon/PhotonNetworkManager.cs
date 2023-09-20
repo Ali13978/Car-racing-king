@@ -112,6 +112,5 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Left room");
         PhotonNetwork.LeaveRoom();
-        SceneManager.LoadScene(0);
     }
 }

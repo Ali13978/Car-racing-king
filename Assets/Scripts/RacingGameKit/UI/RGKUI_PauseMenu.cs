@@ -435,7 +435,8 @@ namespace RacingGameKit.UI
 					m_CanvasTouchDrive.blocksRaycasts = false;
 					m_CanvasTouchDrive.interactable = false;
 				}
-				Time.timeScale = 0f;
+                if (!PhotonNetworkManager.isMultiplayer)
+                    Time.timeScale = 0f;
 				m_isPaused = true;
 			}
 		}
