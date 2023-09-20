@@ -20,7 +20,7 @@ namespace RacingGameKit.UI
 
 		private iRGKTDM m_TouchDrive;
 
-		public GameObject m_TouchDriveManager;
+        public GameObject m_TouchDriveManager;
 
 		public GameObject m_PnlHud;
 

@@ -180,7 +180,7 @@ MonoBehaviour:
   m_IsToggled: 0
   m_TouchAnywhereRect: {fileID: 0}
   m_CanvasGroup: {fileID: 0}
-  m_OriginalPosition: {x: 214, y: 504.75458, z: 0}
+  m_OriginalPosition: {x: 214.62, y: 318.98, z: 0}
   tdButtonEdVarsTouchSettings: 1
   tdButtonEdVarsGuiSettings: 1
   tdButtonEdVarsDebugSettings: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_IsToggled: 0
   m_TouchAnywhereRect: {fileID: 0}
   m_CanvasGroup: {fileID: 0}
-  m_OriginalPosition: {x: 538.1, y: -247, z: 0}
+  m_OriginalPosition: {x: 539.16, y: -247.56, z: 0}
   tdButtonEdVarsTouchSettings: 1
   tdButtonEdVarsGuiSettings: 1
   tdButtonEdVarsDebugSettings: 0
@@ -387,7 +387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3859394377060607262
 RectTransform:
   m_ObjectHideFlags: 0
@@ -548,7 +548,7 @@ MonoBehaviour:
   m_IsToggled: 0
   m_TouchAnywhereRect: {fileID: 0}
   m_CanvasGroup: {fileID: 0}
-  m_OriginalPosition: {x: -439, y: -12, z: 100}
+  m_OriginalPosition: {x: -440.61853, y: -10.563187, z: 100}
   tdButtonEdVarsTouchSettings: 1
   tdButtonEdVarsGuiSettings: 1
   tdButtonEdVarsDebugSettings: 1
@@ -916,7 +916,7 @@ MonoBehaviour:
   m_IsToggled: 0
   m_TouchAnywhereRect: {fileID: 0}
   m_CanvasGroup: {fileID: 0}
-  m_OriginalPosition: {x: -273.50012, y: 504.75458, z: 0}
+  m_OriginalPosition: {x: -273.97998, y: 319.1299, z: 0}
   tdButtonEdVarsTouchSettings: 1
   tdButtonEdVarsGuiSettings: 1
   tdButtonEdVarsDebugSettings: 0
@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_IsToggled: 0
   m_TouchAnywhereRect: {fileID: 0}
   m_CanvasGroup: {fileID: 0}
-  m_OriginalPosition: {x: -560.6, y: 504.75458, z: 0}
+  m_OriginalPosition: {x: -561.14, y: 319.1299, z: 0}
   tdButtonEdVarsTouchSettings: 1
   tdButtonEdVarsGuiSettings: 1
   tdButtonEdVarsDebugSettings: 0
@@ -1291,7 +1291,7 @@ MonoBehaviour:
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1237595939519726134}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_IsToggled: 0
   m_TouchAnywhereRect: {fileID: 0}
   m_CanvasGroup: {fileID: 0}
-  m_OriginalPosition: {x: 0, y: 0, z: 0}
+  m_OriginalPosition: {x: -348, y: -425.5714, z: 100}
   tdButtonEdVarsTouchSettings: 1
   tdButtonEdVarsGuiSettings: 1
   tdButtonEdVarsDebugSettings: 0
@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_IsToggled: 0
   m_TouchAnywhereRect: {fileID: 0}
   m_CanvasGroup: {fileID: 0}
-  m_OriginalPosition: {x: -296, y: -266.5, z: 0}
+  m_OriginalPosition: {x: -296.00137, y: -266.98, z: 0}
   tdButtonEdVarsTouchSettings: 1
   tdButtonEdVarsGuiSettings: 1
   tdButtonEdVarsDebugSettings: 0
@@ -1768,7 +1768,7 @@ MonoBehaviour:
   m_IsToggled: 0
   m_TouchAnywhereRect: {fileID: 0}
   m_CanvasGroup: {fileID: 0}
-  m_OriginalPosition: {x: 538, y: 504.75458, z: 0}
+  m_OriginalPosition: {x: 537.6001, y: 318.98, z: 0}
   tdButtonEdVarsTouchSettings: 1
   tdButtonEdVarsGuiSettings: 1
   tdButtonEdVarsDebugSettings: 0
@@ -1952,7 +1952,7 @@ MonoBehaviour:
   m_IsToggled: 0
   m_TouchAnywhereRect: {fileID: 0}
   m_CanvasGroup: {fileID: 0}
-  m_OriginalPosition: {x: 280, y: -287, z: 0}
+  m_OriginalPosition: {x: 280.74008, y: -287.56, z: 0}
   tdButtonEdVarsTouchSettings: 1
   tdButtonEdVarsGuiSettings: 1
   tdButtonEdVarsDebugSettings: 0
@@ -2238,7 +2238,7 @@ MonoBehaviour:
   m_IsToggled: 0
   m_TouchAnywhereRect: {fileID: 0}
   m_CanvasGroup: {fileID: 0}
-  m_OriginalPosition: {x: -538.1, y: -266.5, z: 0}
+  m_OriginalPosition: {x: -538.6, y: -266.98, z: 0}
   tdButtonEdVarsTouchSettings: 1
   tdButtonEdVarsGuiSettings: 1
   tdButtonEdVarsDebugSettings: 0
@@ -2276,10 +2276,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4878552158936921422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 235.5, y: 125}
-  m_SizeDelta: {x: 256, y: 256}
+  m_AnchorMin: {x: 0.082, y: 0.025}
+  m_AnchorMax: {x: 0.28265628, y: 0.37788892}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1407549713279955831
 CanvasRenderer:
@@ -2438,7 +2438,7 @@ MonoBehaviour:
   m_IsToggled: 0
   m_TouchAnywhereRect: {fileID: 0}
   m_CanvasGroup: {fileID: 0}
-  m_OriginalPosition: {x: -404.5, y: -257.9272, z: 0}
+  m_OriginalPosition: {x: -404.5, y: -423.5714, z: 0}
   tdButtonEdVarsTouchSettings: 1
   tdButtonEdVarsGuiSettings: 1
   tdButtonEdVarsDebugSettings: 0
@@ -2488,7 +2488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8451372973032025619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2503,10 +2503,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4878552158936921422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -490.0028, y: 41.8}
-  m_SizeDelta: {x: 238, y: 168}
+  m_AnchorMin: {x: 0.8, y: 0.40982294}
+  m_AnchorMax: {x: 0.9853438, y: 0.56200004}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0.00010681, y: -0.000015259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4494888877470867719
 CanvasRenderer:
