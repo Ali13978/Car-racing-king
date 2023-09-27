@@ -31,7 +31,7 @@ public class MainMenuScript : MonoBehaviourPunCallbacks
 
     #endregion
     [SerializeField] GameObject moneyGameObject;
-    [SerializeField] Button multiplayerBtn;
+    [SerializeField] public Button multiplayerBtn;
 
     [Header("------------Pannels-----------")]
     [SerializeField] GameObject mainMenuPannel;

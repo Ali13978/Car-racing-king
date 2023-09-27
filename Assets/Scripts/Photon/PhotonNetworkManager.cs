@@ -49,9 +49,16 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         MainMenuScript.instance.LoadingScreenCanvasSetActive(false);
+        MainMenuScript.instance.multiplayerBtn.gameObject.SetActive(true);
         Debug.Log("Player connected to master server in " + PhotonNetwork.CloudRegion + " region");
     }
-    
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        MainMenuScript.instance.LoadingScreenCanvasSetActive(false);
+        MainMenuScript.instance.multiplayerBtn.gameObject.SetActive(false);
+    }
+
     public void CreateRoom(string _levelName)
     {
 
