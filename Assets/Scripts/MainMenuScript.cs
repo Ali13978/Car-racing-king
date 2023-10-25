@@ -142,7 +142,11 @@ public class MainMenuScript : MonoBehaviourPunCallbacks
     [SerializeField] int selectedLevel;
 
 	[Header("Vehicles Panel")]
-    [SerializeField] GameObject[] vehicles;
+	[SerializeField] GameObject[] vehicles;
+	
+	[SerializeField] List<GameObject> purchasedVehicles;
+
+	[SerializeField] List<GameObject> unPurchasedVehicles;
 
     [SerializeField] string[] vehicleNames;
 
@@ -207,6 +211,7 @@ public class MainMenuScript : MonoBehaviourPunCallbacks
                 PhotonNetworkManager.Instance.LeaveRoom();
             }
         Time.timeScale = 1f;
+
 
         currentState = MainMenuState.PlayScreen;
 		vehicleCounter = 0;
@@ -299,6 +304,7 @@ public class MainMenuScript : MonoBehaviourPunCallbacks
             mainMenuPannel.SetActive(true);
             setupNamePannel.SetActive(false);
             PhotonNetwork.LocalPlayer.NickName = PlayerPrefs.GetString("PlayerName");
+			LoginManager.instance.UpdatePlayerName(playerName);
         });
 
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -450,6 +456,7 @@ public class MainMenuScript : MonoBehaviourPunCallbacks
 			levelScreenCanvas[j].SetActive(value: false);
 		}
 		vehicleSelectionCanvas.SetActive(value: true);
+		RefreshVehiclesArrays();
 		if (PlayerPrefs.GetInt("Vehicle " + vehicleCounter.ToString()) == 1)
 		{
 			buyButton.SetActive(value: false);
@@ -472,6 +479,22 @@ public class MainMenuScript : MonoBehaviourPunCallbacks
 			levelScreenCanvas[i].SetActive(value: false);
 		}
 		environmentScreenCanvas.SetActive(value: true);
+	}
+
+	private void RefreshVehiclesArrays() 
+	{
+		purchasedVehicles.Clear();
+		unPurchasedVehicles.Clear();
+
+		for(int i = 0; i < 5; i++)
+		{
+			if (PlayerPrefs.GetInt("Vehicle " + i) == 1)
+			{
+				purchasedVehicles.Add(vehicles[i]);
+			}
+			else
+				unPurchasedVehicles.Add(vehicles[i]);
+		}
 	}
 
 	public void carSelectionOptions(int option)
@@ -746,6 +769,7 @@ public class MainMenuScript : MonoBehaviourPunCallbacks
 			PlayerPrefs.SetInt("Cash", PlayerPrefs.GetInt("Cash") - int.Parse(vehiclePrices[vehicleCounter]));
 			buyButton.SetActive(value: false);
 			updateCashOptions(vehicleCounter);
+			RefreshVehiclesArrays();
 		}
 		else
 		{
@@ -857,4 +881,6 @@ public class MainMenuScript : MonoBehaviourPunCallbacks
     {
         loadingScrenCanvas.SetActive(isActive);
     }
+
+
 }

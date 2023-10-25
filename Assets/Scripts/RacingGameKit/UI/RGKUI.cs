@@ -291,25 +291,40 @@ namespace RacingGameKit.UI
 						m_pnlResults.FindInChildren("lblBestLap").GetComponent<Text>().text = "Top Speed :";
 						m_pnlResults.FindInChildren("lblBestLapValue").GetComponent<Text>().text = RGKUI_Utils.FormatSpeed(m_PlayerDetail.RacerSumOfSpeeds, IsMile: false);
 					}
-					break;
+
+                    if (m_PlayerDetail.RacerStanding == 1)
+                        LeaderboardsManager.instance.AddScore(30);
+                    else
+                        LeaderboardsManager.instance.AddScore(14);
+                    break;
+
 				case RaceTypeEnum.TimeAttack:
 					if (!m_PlayerDetail.RacerDestroyed)
 					{
 						m_pnlResults.FindInChildren("lblStandings").GetComponent<Text>().text = "WIN!";
 						m_PlayerDetail.RacerStanding = 1f;
-					}
+                        LeaderboardsManager.instance.AddScore(30);
+                    }
 					else
 					{
 						m_pnlResults.FindInChildren("lblStandings").GetComponent<Text>().text = "FAIL!";
-					}
+                        LeaderboardsManager.instance.AddScore(14);
+                    }
 					m_pnlResults.FindInChildren("lblTotalTimeValue").GetComponent<Text>().text = RGKUI_Utils.FormatTime(m_PlayerDetail.RacerTotalTime, ShowFraction: true, 2);
 					m_pnlResults.FindInChildren("lblBestLapValue").GetComponent<Text>().text = RGKUI_Utils.FormatTime(m_PlayerDetail.RacerBestTime, ShowFraction: true, 2);
-					break;
+
+                    break;
+
 				default:
 					m_pnlResults.FindInChildren("lblStandings").GetComponent<Text>().text = RGKUI_Utils.Ordinal(Convert.ToInt16(m_PlayerDetail.RacerStanding));
 					m_pnlResults.FindInChildren("lblTotalTimeValue").GetComponent<Text>().text = RGKUI_Utils.FormatTime(m_PlayerDetail.RacerTotalTime, ShowFraction: true, 2);
 					m_pnlResults.FindInChildren("lblBestLapValue").GetComponent<Text>().text = RGKUI_Utils.FormatTime(m_PlayerDetail.RacerBestTime, ShowFraction: true, 2);
-					break;
+
+                    if (m_PlayerDetail.RacerStanding == 1)
+                        LeaderboardsManager.instance.AddScore(30);
+                    else
+                        LeaderboardsManager.instance.AddScore(14);
+                    break;
 				}
 			}
 			m_pnlResults.GetComponent<CanvasGroup>().alpha = 1f;
