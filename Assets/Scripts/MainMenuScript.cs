@@ -25,7 +25,7 @@ public class MainMenuScript : MonoBehaviourPunCallbacks
     public static MainMenuScript instance;
     private void Awake()
     {
-        PlayerPrefs.SetInt("Cash", 10000000);
+        //PlayerPrefs.SetInt("Cash", 9999999);
         instance = this;
     }
 
